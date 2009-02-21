@@ -1,0 +1,93 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html style="font-family:courier,monospace;">
+  <head>
+    <title>Goals of the &#039;hparser&#039; Project</title>
+  </head>
+  <body>
+    <div align="center">
+      <h1> Goals of the <u>hparser</u> Project </h1>
+    </div>
+    <h4> The <u>hparser</u> project is a set of Linux shared libraries intended to help programs create their own unique file formats and to deal with external file formats. I haven't been able to pin down solid documentation yet; however, I have managed to define several definite goals for the project. This project is still fairly new, but is nearly completely functional, really only lacking documentation and standard implementation procedures. </h4>
+    <h4> Long-term goals of the <u>hparser</u> project: </h4>
+    <ol>
+      <li> Allow simple implementation of a parser program or library which can parse an arbitrary input type, in an arbitrary format, and provide simple means to assemble the data into a tree. <br>
+        <br>
+      </li>
+      <li> Provide simple means for a program to arbitrarily modify the structure of a data tree without additional function calls to modify a parallel-operating interface. <br>
+        <br>
+      </li>
+      <li> Allow a program to create a fully-functional data tree without parsing input data. <br>
+        <br>
+      </li>
+      <li> Provide simple means for a program to export a tree's data in a format which can reproduce the tree in its exact state using the same parser. <br>
+        <br>
+      </li>
+      <li> Allow a program to compile parsed information or tree data into an arbitrary representation. <br>
+        <br>
+      </li>
+      <li> Provide a simple application interface which allows input from sources, output to destinations, and working data of types unknown to the library. <br>
+        <br>
+      </li>
+      <li> Allow fully-functional programs to be composed strictly of an interface-only program (such as a GUI) linked to a single library which contains all importation, processing, and exportation functionality. <br>
+        <br>
+      </li>
+      <li> Allow a fully-linked program which contains all necessary logic except for a file format, which can be arbitrarily changed by changing format libraries. <br>
+        <br>
+      </li>
+      <li> Retain a fully-functional and safe data tree in the event parsing encounters an error, which also allows simple return to the point of error if the program chooses to continue parsing. <br>
+        <br>
+      </li>
+      <li> Provide safe and complete memory management which prevents memory leaks, bad pointers, and double deletion. <br>
+        <br>
+      </li>
+      <li> Allow simple extension of the core library and provide a few basic extensions for common uses. <br>
+        <br>
+      </li>
+      <li> Provide all above listed functionality with the option of centralized, decentralized, or recursive parsing and exportation, or any combination thereof. </li>
+    </ol>
+    <br>
+    <h4> Intended and supported implementations of the <u>hparser</u> project: </h4>
+    <ol>
+      <li> Create arbitrary file formats for programs which need to store, load, and modify their own files. <br>
+        <br>
+      </li>
+      <li> Convert between different file types and formats. <br>
+        <br>
+      </li>
+      <li> Communicate structured information between independent processes. <br>
+        <br>
+      </li>
+      <li> Create an arbitrary interpreted language. <br>
+        <br>
+      </li>
+      <li> Graphically create and modify files. </li>
+    </ol>
+    <br>
+    <h4> Possible uses of the <u>hparser</u> project which aren't its best uses and aren't specifically supported: </h4>
+    <ol>
+      <li> Parse information which will be digested but will never need to be represented as a tree in run-time memory. <br>
+        <br>
+      </li>
+      <li> Compile source code which is better compiled by something specifically designed for that task. </li>
+    </ol>
+    <br>
+    <h4> <u>hparser</u> currently supports all of its main goals in theory, although nearly all of them have been tested and verified.  Documentation of how to implement the libraries will follow soon after I decide how best to communicate it.  Until then, please take a look at the <a href="http://developer.berlios.de/projects/hparser/">download page</a> and the example code it contains. </h4>
+    <h2 align="center"><b>
+      <a href="http://developer.berlios.de/projects/hparser/">Download</a> &nbsp;
+      <a href="api/index.html">API Reference</a></b>
+    </h2>
+    <hr>
+    <div>
+      <table style="width: 100%; table-layout: fixed;">
+        <tr>
+          <td align="left">
+            <a href="mailto:ta0kira@users.berlios.de">&#169; 2007-2009 Kevin P. Barry</a>
+          </td>
+          <td align="right">
+            <a href="http://developer.berlios.de" title="BerliOS Developer"><img src="http://developer.berlios.de/bslogo.php?group_id=10654" width="124px" height="32px" border="0" alt="BerliOS Developer Logo"></a>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </body>
+</html>

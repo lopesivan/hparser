@@ -1,0 +1,17 @@
+This is an example of a parser for files that hold a table of data at the
+beginning and a bulk section of data after the table.  The table format is
+similar to the first descriptor example and is parsed nearly identically.  Often
+times this type of file will be used over a network so that the basic shell of
+the file can be downloaded and each required part subsequently downloaded as
+needed.  To simulate this process, the file manager also serves as an input
+resource manager to allow each element to access its data.
+
+Build this example with 'make'.  This example uses several of the files from
+'../common', which contains classes used by multiple examples.
+
+Once you've built this example, execute it with 'table sample-in sample-out'.
+This will parse 'sample-in' and export it to 'sample-out'.  You can verify that
+the data was exported correctly by executing 'table sample-out'.
+
+Like all of the other examples, this type of parser can be modified to parse
+binary files and data, also.

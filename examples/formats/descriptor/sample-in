@@ -1,0 +1,12 @@
+[T/4/Main Section]
+    [D/24/Description]This is the main section
+    [T/3/Table 1]
+        [D/6/data]Item 1
+        [D/6/data]Item 2
+        [D/6/data]Item 3
+    [T/3/Table 2]
+        [D/8/]Item AAA
+        [D/8/]Item BBB
+        [D/8/]Item CCC
+    [D/35/Closing]This is the end of the main section
+This is some data after the main section.  This should not be parsed because it's not within the scope of the main section.

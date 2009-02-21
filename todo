@@ -1,0 +1,24 @@
+need more versatile tag function set! example: compare open tag to close to see if they are a pair, compare tag name to tag to see if it is an open or close tag
+
++InsertHere/DemoteSelf: if arg has owner, can insert if caller DOESN'T have owner. if caller DOESN'T have owner, can always insert.
+
++- table example
+*- implicit example
++- structure example
+*- update/add UML
+*- overall tutorial
+*- tutorial for each example
+
+**experiment with protocols for output
+
+****-> write standard I/O classes (files already built)
+***-> think out FILO class and rewrite it and TEST IT
++-> write a simple test to assemble a GTK GUI and to allow it to modify itself and export
+	****->(rewrite from scratch)
+*****-> update function docs with InsertNext and InsertChild
++-> proxy class
++-> connection control base class for ParentStorage
+
+****NOTE: GUI changes all to made by derived classes (i.e. the objects themselves)
+
+**-> combine plug-in, procsrv (rename), pmath, GUI into something wonderful
