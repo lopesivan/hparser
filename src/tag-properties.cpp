@@ -36,6 +36,8 @@
 #include "tag-properties.hpp"
 #include "tag-constants.hpp"
 
+#include <string.h>
+
 
 //Internal Data=================================================================
 static const std::string TStart(tag_start);
