@@ -35,7 +35,6 @@
 
 #include "tag-properties.hpp"
 #include "tag-constants.hpp"
-
 #include <string.h>
 
 
@@ -49,7 +48,7 @@ static const std::string PropAssn(property_assign);
 //==============================================================================
 
 //Internal Functions============================================================
-void RemoveSeparators(property_data &iInput)
+static void remove_separators(property_data &iInput)
 {
 	//This removes excess separators from the ends of a string (e.g. ";")
 
@@ -65,7 +64,7 @@ void RemoveSeparators(property_data &iInput)
 	 {
 	First = iInput.find(PropSep);
 
-	if (RemFirst = (First == 0))
+	if ((RemFirst = (First == 0)))
 	iInput.erase(iInput.begin(), iInput.begin() + PropSep.size());
 	 }
 	else RemFirst = false;
@@ -74,7 +73,7 @@ void RemoveSeparators(property_data &iInput)
 	 {
 	Last = iInput.rfind(PropSep);
 
-	if (RemLast = (Last + PropSep.size() == iInput.size()))
+	if ((RemLast = (Last + PropSep.size() == iInput.size())))
 	iInput.erase(iInput.begin() + Last, iInput.end());
 	 }
 	else RemLast = false;
@@ -84,7 +83,7 @@ void RemoveSeparators(property_data &iInput)
 	while (RemFirst || RemLast);
 }
 
-bool RawProperties(const data_tag &iInput, property_data &pProps)
+static bool raw_properties(const data_tag &iInput, property_data &pProps)
 {
 	//This extracts properties embedded in a tag (e.g. '<a href="#1">' ->
 	//'href="#1"')
@@ -201,8 +200,8 @@ void extract_properties(const data_tag &iInput, property_list &pProps)
 
 	//Copy, remove extra whitespace and separators, then copy again
 	property_data Working;
-	if (!RawProperties(iInput, Working)) return;
-	RemoveSeparators(Working);
+	if (!raw_properties(iInput, Working)) return;
+	remove_separators(Working);
 	property_data Search = Working;
 
 	bool Quote = false;
@@ -214,8 +213,10 @@ void extract_properties(const data_tag &iInput, property_list &pProps)
 	{
 	if (Search[I] == quote_character) Quote = !Quote;
 	else if (Quote)
+	 {
 	if (Search[I] == PropSep[0]) Search[I] = safe_character;
 	else if (Search[I] == PropAssn[0]) Search[I] = safe_character;
+	 }
 	}
 
 	//The loop below pulls properties from the front of the string one at a
@@ -225,8 +226,8 @@ void extract_properties(const data_tag &iInput, property_list &pProps)
 
 	while (Working.size())
 	{
-	RemoveSeparators(Working);
-	RemoveSeparators(Search);
+	remove_separators(Working);
+	remove_separators(Search);
 	property_data WorkingTemp = Working, SearchTemp = Search;
 	if (Next < 0) Next = Search.find(TEnd);
 	else          Next = Search.find(PropSep);
@@ -274,10 +275,10 @@ void extract_properties(const data_tag &iInput, property_list &pProps)
 	}
 } //END-------------------------------------------------------------------------
 
-//Function insert_properties----------------------------------------------------
+//Function insert_properties_common---------------------------------------------
 //Embed tag properties into the tag
-bool insert_propertiesCommon(data_tag &oOutput, const property_list &pProps,
-bool sSet)
+static bool insert_properties_common(data_tag &oOutput,
+const property_list &pProps, bool sSet)
 {
 	if (!is_whole_tag(oOutput)) return false;
 	if (!pProps.size())       return false;
@@ -314,16 +315,18 @@ bool sSet)
 	}
 
 	return true;
-}
+} //END-------------------------------------------------------------------------
 
+//Function insert_properties----------------------------------------------------
+//Embed tag properties into the tag
 bool insert_properties(data_tag &oOutput, const property_list &pProps)
-{ return insert_propertiesCommon(oOutput, pProps, false); }
+{ return insert_properties_common(oOutput, pProps, false); }
 //END---------------------------------------------------------------------------
 
 //Function insert_set_properties------------------------------------------------
 //Embed tag properties with set values into the tag
 bool insert_set_properties(data_tag &oOutput, const property_list &pProps)
-{ return insert_propertiesCommon(oOutput, pProps, true); }
+{ return insert_properties_common(oOutput, pProps, true); }
 //END---------------------------------------------------------------------------
 
 //Function get_property_value---------------------------------------------------
@@ -425,7 +428,7 @@ bool tag_compare(const property_data &iInput, const property_data &tTag)
 	int Separator2 = tTag.find(PropSep);
 	if (Separator2 < 0) Separator2 = tTag.size() - TStop.size();
 
-	return iInput.compare(0, Separator1, tTag, 0, Separator2);
+	return iInput.compare(0, Separator1, tTag, 0, Separator2) == 0;
 } //END-------------------------------------------------------------------------
 
 //Function tag_compare_open-----------------------------------------------------

@@ -3,7 +3,7 @@
 
   #define HPARSER_MAJ  1
   #define HPARSER_MIN  0
-  #define HPARSER_UPDT 0
+  #define HPARSER_UPDT 1
 
   #ifdef __cplusplus
 extern "C"
