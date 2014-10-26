@@ -383,8 +383,8 @@ libhparser_la_SOURCES = comm-line.cpp data-input.cpp data-manager.cpp \
 	../include/hparser/triggered-update.hpp \
 	../include/hparser/verified-element.hpp
 libhpaux_la_SOURCES = descriptor-storage.cpp filo-scope.cpp generic-file.cpp standard-files.cpp string-all.cpp tag-constants.cpp tag-properties.cpp tagged-storage.cpp ../include/hparser/aux/generic-file.hpp ../include/hparser/aux/standard-error.hpp ../include/hparser/aux/standard-input.hpp ../include/hparser/aux/standard-output.hpp ../include/hparser/classes/filo-scope.hpp ../include/hparser/classes/string-all.hpp ../include/hparser/classes/string-composite.hpp ../include/hparser/classes/string-input.hpp ../include/hparser/classes/string-message.hpp ../include/hparser/classes/string-output.hpp ../include/hparser/formats/descriptor-input.hpp ../include/hparser/formats/descriptor-output.hpp ../include/hparser/formats/descriptor-storage.hpp ../include/hparser/formats/managed-input.hpp ../include/hparser/formats/managed-output.hpp ../include/hparser/formats/tag-constants.hpp ../include/hparser/formats/tag-properties.hpp ../include/hparser/formats/tagged-input.hpp ../include/hparser/formats/tagged-output.hpp
-libhparser_la_LDFLAGS = -version-info 1:1:0
-libhpaux_la_LDFLAGS = -version-info 1:1:0 libhparser.la
+libhparser_la_LDFLAGS = -shared -version-info 1:1:0
+libhpaux_la_LDFLAGS = -shared -version-info 1:1:0 libhparser.la
 libhparser_la_LIBADD = 
 libhpaux_la_LIBADD = 
 all: all-am

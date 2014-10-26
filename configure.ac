@@ -6,6 +6,7 @@ AC_INIT(hparser, 1.0.1, [Kevin P. Barry (ta0kira@users.berlios.de)])
 AM_INIT_AUTOMAKE
 AC_CONFIG_FILES([Makefile include/Makefile src/Makefile])
 AC_CONFIG_SRCDIR([include/hparser/version.hpp])
+AC_CONFIG_MACRO_DIR([m4])
 
 # Checks for programs.
 AC_PROG_LIBTOOL
