@@ -1,0 +1,35 @@
+.TH "input_resource" 3 "Fri Dec 5 2014" "Version hparser-1.0.0" "hparser" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+input_resource \- 
+.PP
+Random-access input resource\&.
+.PP
+This class provides a random-access input interface\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <hparser/input-resource\&.hpp>\fP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "virtual const \fBinput_section\fP & \fBget_input\fP (input_resource_count, input_resource_count)=0"
+.br
+.ti -1c
+.RI "virtual bool \fBset_input_index\fP (input_resource_count=0)=0"
+.br
+.in -1c
+.SH "Member Function Documentation"
+.PP 
+.SS "virtual const \fBinput_section\fP& input_resource::get_input (input_resource_count, input_resource_count)\fC [pure virtual]\fP"
+Obtain input using an index and an input size\&. 
+.SS "virtual bool input_resource::set_input_index (input_resource_count = \fC0\fP)\fC [pure virtual]\fP"
+Set the input index offset\&. 
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for hparser from the source code\&.

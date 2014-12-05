@@ -1,0 +1,390 @@
+.TH "linked_section" 3 "Fri Dec 5 2014" "Version hparser-1.0.0" "hparser" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+linked_section \- 
+.PP
+Partially-abstract tree element class\&.
+.PP
+This class provides linking functionality for \fBstorage_section\fP\&. This class owns the element following it and its first child element\&. This means that upon its own deletion it deletes its child elements and the following element if this element has no owner itself\&. Some functions are overridden or implemented with specific functionality unique to a linked element\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <hparser/linked-section\&.hpp>\fP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "virtual location_count \fBself_location\fP () const "
+.br
+.ti -1c
+.RI "virtual \fB~linked_section\fP ()"
+.br
+.in -1c
+.PP
+.RI "\fBImplemented from CommLine\fP"
+.br
+
+.in +1c
+.in +1c
+.ti -1c
+.RI "virtual bool \fBsend_message\fP (\fBcomm_message\fP &)"
+.br
+.RI "\fIMessage conduit function\&. \fP"
+.in -1c
+.in -1c
+.PP
+.RI "\fBData Filtering\fP"
+.br
+
+.in +1c
+.in +1c
+.ti -1c
+.RI "virtual bool \fBinput_filter\fP (\fBinput_section\fP &)"
+.br
+.ti -1c
+.RI "virtual bool \fBoutput_filter\fP (\fBoutput_section\fP &) const "
+.br
+.in -1c
+.in -1c
+.PP
+.RI "\fBElement Updating Functions\fP"
+.br
+
+.in +1c
+.in +1c
+.ti -1c
+.RI "virtual bool \fBglobal_update\fP ()"
+.br
+.ti -1c
+.RI "virtual bool \fBbranch_update\fP ()"
+.br
+.ti -1c
+.RI "virtual bool \fBhierarchy_update\fP ()"
+.br
+.in -1c
+.in -1c
+.PP
+.RI "\fBImplemented from parent_storage\fP"
+.br
+
+.in +1c
+.in +1c
+.ti -1c
+.RI "virtual \fBparent_storage\fP * \fBparent\fP () const "
+.br
+.ti -1c
+.RI "virtual \fBparent_storage\fP * \fBhierarchy_base\fP () const "
+.br
+.ti -1c
+.RI "virtual \fBparent_storage\fP * \fBbranch_base\fP () const "
+.br
+.ti -1c
+.RI "virtual location_count \fBstorage_size\fP () const "
+.br
+.in -1c
+.in -1c
+.PP
+.RI "\fBImplemented from scope_locator\fP"
+.br
+
+.in +1c
+.in +1c
+.ti -1c
+.RI "virtual \fBscope_locator\fP * \fBlocate_scope\fP (const \fBscope_identifier\fP &)"
+.br
+.ti -1c
+.RI "virtual bool \fBcurrent_scope\fP (\fBscope_identifier\fP &, const \fBscope_locator\fP *) const "
+.br
+.ti -1c
+.RI "virtual bool \fBbase_current_scope\fP (const \fBscope_locator\fP *) const "
+.br
+.in -1c
+.in -1c
+.PP
+.RI "\fBImplemented from ConnectionControl\fP"
+.br
+
+.in +1c
+.in +1c
+.ti -1c
+.RI "virtual bool \fBallow_next\fP (const \fBstorage_section\fP *) const "
+.br
+.ti -1c
+.RI "virtual bool \fBallow_here\fP (const \fBstorage_section\fP *) const "
+.br
+.in -1c
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBlinked_section\fP (const \fBlinked_section\fP &)"
+.br
+.ti -1c
+.RI "\fBlinked_section\fP & \fBoperator=\fP (const \fBlinked_section\fP &)"
+.br
+.in -1c
+.PP
+.RI "\fBImplemented from input_resource_owner\fP"
+.br
+
+.in +1c
+.in +1c
+.ti -1c
+.RI "virtual \fBinput_resource\fP * \fBget_input_resource\fP ()"
+.br
+.in -1c
+.in -1c
+.PP
+.RI "\fBImplemented from output_resource_owner\fP"
+.br
+
+.in +1c
+.in +1c
+.ti -1c
+.RI "virtual \fBoutput_resource\fP * \fBget_output_resource\fP ()"
+.br
+.in -1c
+.in -1c
+.SS "Implemented from storage_section"
+
+.in +1c
+.ti -1c
+.RI "virtual \fBstorage_section\fP * \fBlast\fP () const "
+.br
+.ti -1c
+.RI "virtual \fBstorage_section\fP * \fBnext\fP () const "
+.br
+.ti -1c
+.RI "virtual \fBsection_releaser\fP \fBadd_next\fP (\fBsection_releaser\fP)"
+.br
+.ti -1c
+.RI "virtual \fBsection_releaser\fP \fBinsert_next\fP (\fBsection_releaser\fP)"
+.br
+.ti -1c
+.RI "virtual \fBsection_releaser\fP \fBset_next\fP (\fBsection_releaser\fP)"
+.br
+.ti -1c
+.RI "virtual \fBsection_releaser\fP \fBsplice_here\fP (\fBsection_releaser\fP)"
+.br
+.ti -1c
+.RI "virtual \fBsection_releaser\fP \fBremove_self\fP ()"
+.br
+.ti -1c
+.RI "virtual \fBsection_releaser\fP \fBreplace_self\fP (\fBsection_releaser\fP)"
+.br
+.ti -1c
+.RI "virtual \fBsection_releaser\fP \fBinsert_here\fP (\fBsection_releaser\fP)"
+.br
+.ti -1c
+.RI "virtual \fBsection_releaser\fP \fBpromote_children\fP ()"
+.br
+.ti -1c
+.RI "virtual \fBsection_releaser\fP \fBdemote_self\fP (\fBsection_releaser\fP)"
+.br
+.ti -1c
+.RI "virtual \fBstorage_section\fP * \fBprevious\fP () const "
+.br
+.ti -1c
+.RI "virtual \fBstorage_section\fP * \fBfirst\fP () const "
+.br
+.ti -1c
+.RI "virtual \fBstorage_section\fP * \fBchild\fP () const "
+.br
+.ti -1c
+.RI "virtual \fBsection_releaser\fP \fBadd_child\fP (\fBsection_releaser\fP)"
+.br
+.ti -1c
+.RI "virtual \fBsection_releaser\fP \fBinsert_child\fP (\fBsection_releaser\fP)"
+.br
+.ti -1c
+.RI "virtual \fBsection_releaser\fP \fBset_child\fP (\fBsection_releaser\fP)"
+.br
+.ti -1c
+.RI "virtual \fBparent_storage\fP * \fBowner\fP () const "
+.br
+.ti -1c
+.RI "virtual \fBsection_releaser\fP \fBcopy\fP () const =0"
+.br
+.ti -1c
+.RI "virtual \fBstorage_section\fP * \fBset_previous\fP (\fBstorage_section\fP *)"
+.br
+.ti -1c
+.RI "virtual \fBparent_storage\fP * \fBset_parent\fP (\fBparent_storage\fP *)"
+.br
+.ti -1c
+.RI "virtual \fBsection_releaser\fP \fBcopy_all\fP () const "
+.br
+.in -1c
+.SS "Additional Inherited Members"
+.SH "Detailed Description"
+.PP 
+
+.PP
+\fBAttention:\fP
+.RS 4
+Never create objects derived from this class using other than singular 'new'\&. This library expects to be able to delete any pointer to an object of this type\&. 
+.RE
+.PP
+
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "linked_section::linked_section (const \fBlinked_section\fP &)\fC [protected]\fP"
+Copies all children in addition to this element\&. 
+.SS "virtual linked_section::~linked_section ()\fC [virtual]\fP"
+The destructor has 2 distinct behaviors\&. If this element is owned by another element, destruction will result in this element being removed from the hierarchy using a remove_self-type operation and this element will destruct along with all sub-elements\&. If this element has no owner, and is therefore the base of the hierarchy, \fIall\fP peer elements after this element will be destructed\&. This is necessary for memory management\&. 
+.SH "Member Function Documentation"
+.PP 
+.SS "virtual bool linked_section::send_message (\fBcomm_message\fP &)\fC [virtual]\fP"
+This function is implemented to apply the message locally with the CommLine function local_message, to pass the message on to its sub-elements, and then to the element following it\&. To reimplement this function you should check the message to determine the type of path it should take\&. If you need the default functionality in certain cases call 'this->\fBlinked_section::send_message\fP'\&. To apply the message to this element only reimplement the local_message function\&. 
+.PP
+Reimplemented from \fBcomm_line\fP\&.
+.SS "virtual bool linked_section::input_filter (\fBinput_section\fP &)\fC [virtual]\fP"
+Filter input through all parent objects from bottom to top\&. 
+.PP
+Reimplemented from \fBinput_receiver\fP\&.
+.SS "virtual bool linked_section::output_filter (\fBoutput_section\fP &) const\fC [virtual]\fP"
+Filter output through all parent objects from bottom to top\&. 
+.PP
+Reimplemented from \fBoutput_sender\fP\&.
+.SS "virtual bool linked_section::global_update ()\fC [virtual]\fP"
+Update this element, sub-elements, and the following element\&. 
+.PP
+Reimplemented from \fBtriggered_update\fP\&.
+.SS "virtual bool linked_section::branch_update ()\fC [virtual]\fP"
+Update this element, and sub-elements\&. 
+.PP
+Implements \fBstorage_section\fP\&.
+.SS "virtual bool linked_section::hierarchy_update ()\fC [virtual]\fP"
+Update all objects starting with the top-most object\&. 
+.PP
+Implements \fBstorage_section\fP\&.
+.SS "\fBlinked_section\fP& linked_section::operator= (const \fBlinked_section\fP &)\fC [protected]\fP"
+Copies all children in addition to this element and deletes all previous children\&. 
+.SS "virtual \fBstorage_section\fP* linked_section::next () const\fC [virtual]\fP"
+Returns the next peer element in the hierarchichy\&. 
+.PP
+Implements \fBstorage_section\fP\&.
+.SS "virtual \fBsection_releaser\fP linked_section::add_next (\fBsection_releaser\fP)\fC [virtual]\fP"
+Adds a peer element to the end of this chain of elements\&. 
+.PP
+Implements \fBstorage_section\fP\&.
+.SS "virtual \fBsection_releaser\fP linked_section::insert_next (\fBsection_releaser\fP)\fC [virtual]\fP"
+Inserts a peer element immediately ahead of this element\&. 
+.PP
+Implements \fBstorage_section\fP\&.
+.SS "virtual \fBsection_releaser\fP linked_section::set_next (\fBsection_releaser\fP)\fC [virtual]\fP"
+Breaks off the next element, leaving everything following it and below those elements attached to the detached element and returns it\&. It's then replaced by the argument given\&. 
+.PP
+Implements \fBstorage_section\fP\&.
+.SS "virtual \fBsection_releaser\fP linked_section::splice_here (\fBsection_releaser\fP)\fC [virtual]\fP"
+Breaks off this element, leaving everything following it and below this and all following elements attached and returns it\&. It's then replaced by the argument given\&. 
+.PP
+Implements \fBstorage_section\fP\&.
+.SS "virtual \fBsection_releaser\fP linked_section::remove_self ()\fC [virtual]\fP"
+Removes this element and moves the next element up into its place\&. Will not work if this element has no owner\&. 
+.PP
+Implements \fBstorage_section\fP\&.
+.SS "virtual \fBsection_releaser\fP linked_section::replace_self (\fBsection_releaser\fP)\fC [virtual]\fP"
+Removes this element and replaces it with the provided argument\&. Will not work if this element has no owner\&. 
+.PP
+Implements \fBstorage_section\fP\&.
+.SS "virtual \fBsection_releaser\fP linked_section::insert_here (\fBsection_releaser\fP)\fC [virtual]\fP"
+Inserts a new element in this element's place, moving it forward\&. This element becomes the next element of that inserted\&. 
+.PP
+Implements \fBstorage_section\fP\&.
+.SS "virtual \fBsection_releaser\fP linked_section::promote_children ()\fC [virtual]\fP"
+Removes this element and moves all elements below up to its level\&. The promoted elements fill in the space where this element was, becoming peers of this element's\&. 
+.PP
+Implements \fBstorage_section\fP\&.
+.SS "virtual \fBsection_releaser\fP linked_section::demote_self (\fBsection_releaser\fP)\fC [virtual]\fP"
+Inserts an element in this element place and makes this element the last child element of that inserted\&. 
+.PP
+Implements \fBstorage_section\fP\&.
+.SS "virtual \fBstorage_section\fP* linked_section::previous () const\fC [virtual]\fP"
+Returns the previous element in the hierarchy\&. 
+.PP
+Implements \fBstorage_section\fP\&.
+.SS "virtual \fBstorage_section\fP* linked_section::set_previous (\fBstorage_section\fP *)\fC [protected]\fP, \fC [virtual]\fP"
+Sets this element's reference to the element preceding it in the hierarchy\&. This is protected since it effects memory management\&. Do not use this function unless you are deriving a new element class which will provide memory management! 
+.PP
+Implements \fBstorage_section\fP\&.
+.SS "virtual \fBstorage_section\fP* linked_section::first () const\fC [virtual]\fP"
+Returns the first peer element in the hierarchy\&. 
+.PP
+Implements \fBstorage_section\fP\&.
+.SS "virtual \fBstorage_section\fP* linked_section::child () const\fC [virtual]\fP"
+Returns the child element in the hierarchy\&. 
+.PP
+Implements \fBstorage_section\fP\&.
+.SS "virtual \fBsection_releaser\fP linked_section::add_child (\fBsection_releaser\fP)\fC [virtual]\fP"
+Adds a child element to the end of the chain of sub-elements\&. 
+.PP
+Implements \fBstorage_section\fP\&.
+.SS "virtual \fBsection_releaser\fP linked_section::insert_child (\fBsection_releaser\fP)\fC [virtual]\fP"
+Inserts a child element at the beginning of the chain of sub-elements\&. 
+.PP
+Implements \fBstorage_section\fP\&.
+.SS "virtual \fBsection_releaser\fP linked_section::set_child (\fBsection_releaser\fP)\fC [virtual]\fP"
+Breaks off the first sub-element, leaving everything following it and below those elements attached to the detached element and returns it\&. It's then replaced by the argument given\&. 
+.PP
+Implements \fBparent_storage\fP\&.
+.SS "virtual \fBparent_storage\fP* linked_section::parent () const\fC [virtual]\fP"
+Returns the parent element in the hierarchy\&. Not necessarily an element itself\&. 
+.PP
+Reimplemented from \fBparent_storage\fP\&.
+.SS "virtual \fBparent_storage\fP* linked_section::hierarchy_base () const\fC [virtual]\fP"
+Returns the base element in the hierarchy\&. This is the first peer of the top-most parent of the current element\&. 
+.PP
+Reimplemented from \fBparent_storage\fP\&.
+.SS "virtual \fBparent_storage\fP* linked_section::branch_base () const\fC [virtual]\fP"
+Returns the base element in the current branch\&. This is the first top-most parent of the current element\&. 
+.PP
+Reimplemented from \fBparent_storage\fP\&.
+.SS "virtual \fBparent_storage\fP* linked_section::set_parent (\fBparent_storage\fP *)\fC [protected]\fP, \fC [virtual]\fP"
+Sets this element's reference to the element above it in the hierarchy\&. This is protected since it effects memory management\&. Do not use this function unless you are deriving a new element class which will provide memory management! 
+.PP
+Implements \fBstorage_section\fP\&.
+.SS "virtual \fBparent_storage\fP* linked_section::owner () const\fC [virtual]\fP"
+Returns the owning object\&. This is not necessarily another element and not necessarily the element's parent\&. It is the object responsible for deleting this element; therefore, if the object returned by this function destructs, so does this object\&. 
+.PP
+Implements \fBstorage_section\fP\&.
+.SS "virtual \fBsection_releaser\fP linked_section::copy () const\fC [pure virtual]\fP"
+Reiterated from \fBstorage_section\fP\&. This function \fImust\fP be implemented in the most-derived class and should return a new copy of this element\&. 
+.PP
+Implements \fBstorage_section\fP\&.
+.SS "virtual location_count linked_section::self_location () const\fC [virtual]\fP"
+Returns the location counter for this element in the structure as a whole\&. This is necessary for writing to a file or global data structure in order to place this element's data in the correct location\&. Implement the next_location and child_location functions in all elements to indicate where each element's data ends in relation to the return of self_location\&. 
+.PP
+Implements \fBstorage_section\fP\&.
+.SS "virtual location_count linked_section::storage_size () const\fC [virtual]\fP"
+Returns the inferred size of this element's data\&. This does not need to be overridden; override the next_location and child_location functions\&. 
+.PP
+Reimplemented from \fBparent_storage\fP\&.
+.SS "virtual bool linked_section::allow_next (const \fBstorage_section\fP *) const\fC [virtual]\fP"
+Returns true if this element may have elements connected in front of it\&. Override this to gain control over which elements may be connected after this element, or to exclude elements in front of this element altogether\&. 
+.PP
+Reimplemented from \fBparent_storage\fP\&.
+.SS "virtual bool linked_section::allow_here (const \fBstorage_section\fP *) const\fC [virtual]\fP"
+Returns true if this element may be replaced by another element\&. This should not be overridden\&. It checks AllowNext and AllowChild for the owning object as applicable\&. 
+.PP
+Reimplemented from \fBparent_storage\fP\&.
+.SS "virtual \fBsection_releaser\fP linked_section::copy_all () const\fC [protected]\fP, \fC [virtual]\fP"
+Copies this element, all peer elements following it, and all elements below each\&. This is protected because it isn't intended for normal use\&. It's used by the copy constructor\&. 
+.PP
+Implements \fBstorage_section\fP\&.
+.SS "virtual \fBinput_resource\fP* linked_section::get_input_resource ()\fC [protected]\fP, \fC [virtual]\fP"
+Returns the input resource for this element\&. This is generally a data buffer or a wrapper for file input\&. 
+.PP
+Reimplemented from \fBinput_resource_owner\fP\&.
+.SS "virtual \fBoutput_resource\fP* linked_section::get_output_resource ()\fC [protected]\fP, \fC [virtual]\fP"
+Returns the output resource for this element\&. This is generally a data buffer or a wrapper for file output\&. 
+.PP
+Reimplemented from \fBoutput_resource_owner\fP\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for hparser from the source code\&.

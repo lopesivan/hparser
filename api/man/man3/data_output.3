@@ -1,0 +1,69 @@
+.TH "data_output" 3 "Fri Dec 5 2014" "Version hparser-1.0.0" "hparser" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+data_output \- 
+.PP
+Data output destination\&.
+.PP
+This class serves as a generic output interface for data being exported from the tree\&. This interface receives the output data from various components of the tree\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <hparser/data-output\&.hpp>\fP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "virtual bool \fBsend_output\fP (const \fBoutput_section\fP &)=0"
+.br
+.RI "\fIData output request\&. \fP"
+.ti -1c
+.RI "virtual bool \fBis_closed\fP () const =0"
+.br
+.RI "\fIClosed output check\&. \fP"
+.ti -1c
+.RI "virtual bool \fBset_output_mode\fP (unsigned int)"
+.br
+.RI "\fIOutput mode change request\&. \fP"
+.ti -1c
+.RI "virtual bool \fBsynchronize\fP ()"
+.br
+.RI "\fIOutput synchronization\&. \fP"
+.in -1c
+.SS "Additional Inherited Members"
+.SH "Detailed Description"
+.PP 
+The functions themselves are arbitrary in terms of the library and are provided so that the user has a built-in API to handle data output\&.
+.PP
+\fBAttention:\fP
+.RS 4
+This class uses the \fBoutput_section\fP class which is entirely implementation-defined by the using program\&. An optional definition is available for simple text output\&. input\&.
+.PP
+This class uses the \fBcomposite_data\fP class which is entirely implementation-defined by the using program\&. An optional definition is available for simple text processing\&.
+.RE
+.PP
+\fBSee also:\fP
+.RS 4
+\fBdata_input\fP provides complimentary input functionality\&. 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "virtual bool data_output::send_output (const \fBoutput_section\fP &)\fC [pure virtual]\fP"
+This function receives the next sequential section of data\&. Normally this data will be written to a file or sent to an output location as a linear representation of the data in the tree\&. 
+.SS "virtual bool data_output::is_closed () const\fC [pure virtual]\fP"
+This function checks to see if the data destination is closed\&. 
+.PP
+Implemented in \fBgeneric_file\fP\&.
+.SS "virtual bool data_output::set_output_mode (unsignedint)\fC [virtual]\fP"
+This function should be used to change the data output mode if more than one mode is needed\&. For example, to switch from a text display format to a file export format\&. 
+.SS "virtual bool data_output::synchronize ()\fC [virtual]\fP"
+This function should force writing or sending of buffered data\&. 
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for hparser from the source code\&.

@@ -1,0 +1,78 @@
+.TH "section_releaser" 3 "Fri Dec 5 2014" "Version hparser-1.0.0" "hparser" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+section_releaser \- 
+.PP
+Consumable memory management wrapper\&.
+.PP
+This class is a wrapper for dynamic pointer returns from \fBstorage_section\fP functions\&. This is the primary memory management class for elements not currently owned by another element\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <hparser/parent-storage\&.hpp>\fP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBsection_releaser\fP (\fBstorage_section\fP *, bool=true)"
+.br
+.ti -1c
+.RI "bool \fBresult\fP () const "
+.br
+.ti -1c
+.RI "\fBsection_releaser\fP & \fBset_result\fP (bool)"
+.br
+.in -1c
+.PP
+.RI "\fBPointer Functions\fP"
+.br
+
+.in +1c
+.in +1c
+.ti -1c
+.RI "const \fBstorage_section\fP & \fBoperator*\fP () const "
+.br
+.ti -1c
+.RI "\fBstorage_section\fP * \fBoperator->\fP ()"
+.br
+.ti -1c
+.RI "const \fBstorage_section\fP * \fBoperator->\fP () const "
+.br
+.ti -1c
+.RI "bool \fBoperator!\fP () const "
+.br
+.ti -1c
+.RI "\fBoperator bool\fP () const "
+.br
+.ti -1c
+.RI "\fBoperator const storage_section *\fP () const "
+.br
+.in -1c
+.in -1c
+.SH "Detailed Description"
+.PP 
+
+.PP
+\fBAttention:\fP
+.RS 4
+This is a reference-counting object\&. It will delete the stored pointer upon its own destruction if it's the last \fBsection_releaser\fP holding a pointer and that pointer isn't owned by something else ('owned' means part of a hierarchy but not the base\&.) For this reason, you should always immediately pass new elements to a \fBsection_releaser\fP to avoid multiple groups storing pointers to the same element\&. 
+.RE
+.PP
+
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "section_releaser::section_releaser (\fBstorage_section\fP *, bool = \fCtrue\fP)"
+Constructor takes an optional argument to denote a result value\&. 
+.SH "Member Function Documentation"
+.PP 
+.SS "bool section_releaser::result () const"
+Returns a result value to denote success or failure of a returning function\&. 
+.SS "\fBsection_releaser\fP& section_releaser::set_result (bool)"
+Set the value returned by Result\&. 
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for hparser from the source code\&.

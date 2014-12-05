@@ -1,0 +1,57 @@
+.TH "Input and Output Automation" 3 "Fri Dec 5 2014" "Version hparser-1.0.0" "hparser" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Input and Output Automation \- 
+.SS "Classes"
+
+.in +1c
+.ti -1c
+.RI "class \fBdata_importer\fP"
+.br
+.RI "\fIData importation manager\&.
+.PP
+This class is to manage the importation of an entire set of data\&. This should serve as a part of the base of a tree and should receive initial control of \fBdata_input\fP\&. Depending on the implementation, it should create the highest element (which should contain all other elements) and should allow the rest of the tree to self assemble using the \fBinput_receiver\fP functions receive_data and expand_data\&. \fP"
+.ti -1c
+.RI "class \fBdata_manager\fP"
+.br
+.RI "\fICombined input/output manager\&.
+.PP
+This is a convenience class for implementing both \fBinput_manager\fP and \fBoutput_manager\fP in the same object\&. \fP"
+.ti -1c
+.RI "class \fBdata_exporter\fP"
+.br
+.RI "\fIData exportation manager\&.
+.PP
+This class is to manage the exportation of an entire set of data\&. This should serve as a part of the base of a tree and should receive initial control of \fBdata_output\fP\&. Depending on the implementation, it should pass control of output to its first element using the \fBoutput_sender\fP functions send_data and collect_data\&. \fP"
+.ti -1c
+.RI "class \fBfile_input\fP"
+.br
+.RI "\fIFile input source\&.
+.PP
+This is a convenience class for implementing both \fBdata_input\fP and \fBfile_user\fP in the same object\&. \fP"
+.ti -1c
+.RI "class \fBfile_output\fP"
+.br
+.RI "\fIFile output destination\&.
+.PP
+This is a convenience class for implementing both \fBdata_output\fP and \fBfile_user\fP in the same object\&. \fP"
+.ti -1c
+.RI "class \fBinput_manager\fP"
+.br
+.RI "\fIAutomatic data importer\&.
+.PP
+This class automates input of data for construction of a tree\&. \fP"
+.ti -1c
+.RI "class \fBoutput_manager\fP"
+.br
+.RI "\fIAutomatic data exporter\&.
+.PP
+This class automates output of data from a tree\&. \fP"
+.in -1c
+.SH "Detailed Description"
+.PP 
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for hparser from the source code\&.

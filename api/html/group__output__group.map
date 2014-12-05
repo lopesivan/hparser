@@ -1,0 +1,9 @@
+<map id="Output and Exportation" name="Output and Exportation">
+<area shape="rect" id="node1" href="$group__system__group.html" title="Interfaces for External\l Systems" alt="" coords="389,55,552,97"/>
+<area shape="rect" id="node2" href="$group__files__group.html" title="File Interfaces and\l Functions" alt="" coords="401,130,540,171"/>
+<area shape="rect" id="node3" href="$group__user__group.html" title="User&#45;intended Classes" alt="" coords="388,285,553,312"/>
+<area shape="rect" id="node5" href="$group__base__group.html" title="Structural Base Components" alt="" coords="370,345,571,372"/>
+<area shape="rect" id="node6" href="$group__resource__group.html" title="Random&#45;access Resources" alt="" coords="373,404,568,431"/>
+<area shape="rect" id="node7" href="$group__descriptor__group.html" title="Descriptor Format Interfaces" alt="" coords="369,455,572,481"/>
+<area shape="rect" id="node8" href="$group__automation__group.html" title="Input and Output Automation" alt="" coords="371,528,571,555"/>
+</map>

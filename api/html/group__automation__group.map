@@ -1,0 +1,7 @@
+<map id="Input and Output Automation" name="Input and Output Automation">
+<area shape="rect" id="node1" href="$group__files__group.html" title="File Interfaces and\l Functions" alt="" coords="387,6,526,47"/>
+<area shape="rect" id="node2" href="$group__user__group.html" title="User&#45;intended Classes" alt="" coords="374,88,539,115"/>
+<area shape="rect" id="node3" href="$group__input__group.html" title="Input and Parsing" alt="" coords="390,163,523,189"/>
+<area shape="rect" id="node4" href="$group__output__group.html" title="Output and Exportation" alt="" coords="373,237,540,264"/>
+<area shape="rect" id="node5" href="$group__base__group.html" title="Structural Base Components" alt="" coords="356,341,557,368"/>
+</map>

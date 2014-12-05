@@ -1,0 +1,54 @@
+.TH "comm_line" 3 "Fri Dec 5 2014" "Version hparser-1.0.0" "hparser" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+comm_line \- 
+.PP
+Communication interface\&.
+.PP
+This class provides a generic interface to library objects for receiving messages\&. The messages are arbitrary, and this interface is provided to make the library more expandable\&. Intended purposes include requesting information, changing modes/settings, passing errors up the tree, etc\&. The message type is implementation- defined, however\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <hparser/comm-line\&.hpp>\fP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "virtual bool \fBsend_message\fP (\fBcomm_message\fP &)"
+.br
+.RI "\fIMessage conduit function\&. \fP"
+.ti -1c
+.RI "virtual bool \fBlocal_message\fP (\fBcomm_message\fP &)"
+.br
+.RI "\fILocal application of message\&. \fP"
+.in -1c
+.SH "Detailed Description"
+.PP 
+
+.PP
+\fBAttention:\fP
+.RS 4
+This class uses the \fBcomm_message\fP class which is entirely implementation-defined by the using program\&. An optional definition is available for simple text processing\&.
+.RE
+.PP
+\fBSee also:\fP
+.RS 4
+\fBstring-message\&.hpp\fP is provided to mirror a std::string\&. 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "virtual bool comm_line::send_message (\fBcomm_message\fP &)\fC [virtual]\fP"
+This function should pass the message on to other tree elements in the appropriate direction, and send to local_message if applicable\&. 
+.PP
+Reimplemented in \fBlinked_section\fP\&.
+.SS "virtual bool comm_line::local_message (\fBcomm_message\fP &)\fC [virtual]\fP"
+This function applies the message information locally and does not pass the message on\&. 
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for hparser from the source code\&.

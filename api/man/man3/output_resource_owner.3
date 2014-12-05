@@ -1,0 +1,41 @@
+.TH "output_resource_owner" 3 "Fri Dec 5 2014" "Version hparser-1.0.0" "hparser" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+output_resource_owner \- 
+.PP
+Random-access output resource owner\&.
+.PP
+This class provides an interface for providing an output resource\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <hparser/output-resource\&.hpp>\fP
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "virtual \fBoutput_resource\fP * \fBget_output_resource\fP ()"
+.br
+.in -1c
+.SS "Static Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static \fBoutput_resource\fP * \fBget_output_resource\fP (\fBoutput_resource_owner\fP *)"
+.br
+.in -1c
+.SH "Member Function Documentation"
+.PP 
+.SS "virtual \fBoutput_resource\fP* output_resource_owner::get_output_resource ()\fC [protected]\fP, \fC [virtual]\fP"
+Obtain the output resource\&. 
+.PP
+Reimplemented in \fBlinked_section\fP\&.
+.SS "static \fBoutput_resource\fP* output_resource_owner::get_output_resource (\fBoutput_resource_owner\fP *)\fC [static]\fP, \fC [protected]\fP"
+Obtain the output resource from another owner\&. 
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for hparser from the source code\&.

@@ -1,0 +1,71 @@
+.TH "input_receiver" 3 "Fri Dec 5 2014" "Version hparser-1.0.0" "hparser" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+input_receiver \- 
+.PP
+Data input interface\&.
+.PP
+This class serves as the input interface of tree elements\&. The functions provided are for receiving and processing input data for self-assembling trees\&. This is the significant base object for input parsing and deals with data pertaining to its own element and any direct sub-elements\&. Input objects are implementation defined\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <hparser/data-input\&.hpp>\fP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "virtual \fBinput_receiver\fP * \fBreceive_data\fP (\fBdata_input\fP *)"
+.br
+.RI "\fISequential input request\&. \fP"
+.ti -1c
+.RI "virtual bool \fBexpand_data\fP (\fBcomposite_data\fP &)"
+.br
+.RI "\fIRecursive input request\&. \fP"
+.ti -1c
+.RI "virtual bool \fBinput_filter\fP (\fBinput_section\fP &)"
+.br
+.RI "\fIInput filtering\&. \fP"
+.in -1c
+.SH "Detailed Description"
+.PP 
+
+.PP
+\fBSee also:\fP
+.RS 4
+\fBstring-input\&.hpp\fP is provided to mirror a std::string\&. 
+.PP
+\fBstring-composite\&.hpp\fP is provided to mirror a std::string\&.
+.PP
+\fBoutput_sender\fP provides complimentary output functionality\&. 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "virtual \fBinput_receiver\fP* input_receiver::receive_data (\fBdata_input\fP *)\fC [virtual]\fP"
+This function takes a \fBdata_input\fP object so that the \fBinput_receiver\fP can extract the applicable data\&. Normally the data index is right after the element's declaration\&. For example, an element denoted by a <element> tag might be created by another element, then input control would be passed to it via the receive_data function and the \fBdata_input\fP index would be immediately after <element>\&.
+.PP
+The return value is the next \fBinput_receiver\fP to take control of the \fBdata_input\fP\&. Normally this should return 'this' until the end of the element's section\&. If the element encounters a sub-element, it should create it and add it as a child, advance the index past the data indicator of that sub-element, and return the child element\&. As this function uses data for itself, it should advance the input index using next_input\&.
+.PP
+Once the element is done (when its data section has ended,) it should return its parent element\&. This way when an element passes control to a child element it regains control when the child element's data section ends\&. Incidentally, the element should keep track of if it has received all expected data, and if so, return its parent element to allow it to create another child element if needed\&. 
+.PP
+Reimplemented in \fBdescriptor_input\fP, and \fBtagged_input\fP\&.
+.SS "virtual bool input_receiver::expand_data (\fBcomposite_data\fP &)\fC [virtual]\fP"
+This function takes composite data and expands it using a series of recursive function calls\&. The provided data should contain all data to be used by the owning element, to include its sub-elements\&.
+.PP
+The beginning of the composite data should be right after the indication that this element should be created (much like the receive_data function\&.) It should create sub-elements as needed and pass them their own composite data based on how much they will need\&.
+.PP
+This function is intended for formats which specify the length of a data section up front\&. This allows the parser to parse the exact amount of data needed and pass it to the element\&.
+.PP
+The return value should indicate success of the input operation\&. If the element can have sub-elements, this function should have a loop that checks for indicators of those elements and creates them when necessary\&. 
+.SS "virtual bool input_receiver::input_filter (\fBinput_section\fP &)\fC [virtual]\fP"
+This function is provided as an arbitrary filtering interface\&. This allows the element to pass its context-less data to a parent element for it to add context to it, or to send empty data to its parent to gain awareness of its element's context in general\&. This can also be used to format data being logged during input parsing\&. 
+.PP
+Reimplemented in \fBlinked_section\fP\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for hparser from the source code\&.

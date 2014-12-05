@@ -1,0 +1,7 @@
+<map id="Structural Base Components" name="Structural Base Components">
+<area shape="rect" id="node1" href="$group__user__group.html" title="User&#45;intended Classes" alt="" coords="375,37,540,64"/>
+<area shape="rect" id="node2" href="$group__input__group.html" title="Input and Parsing" alt="" coords="391,97,524,124"/>
+<area shape="rect" id="node3" href="$group__output__group.html" title="Output and Exportation" alt="" coords="374,156,541,183"/>
+<area shape="rect" id="node5" href="$group__storage__group.html" title="Storage Components" alt="" coords="379,207,535,233"/>
+<area shape="rect" id="node6" href="$group__automation__group.html" title="Input and Output Automation" alt="" coords="357,309,557,336"/>
+</map>

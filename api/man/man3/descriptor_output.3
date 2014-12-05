@@ -1,0 +1,43 @@
+.TH "descriptor_output" 3 "Fri Dec 5 2014" "Version hparser-1.0.0" "hparser" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+descriptor_output \- 
+.PP
+Output interface for descriptor-formated sections\&.
+.PP
+This class provides a simple interface for exporting data that uses a descriptor-style format (where each section's header contains all information pertaining to the section's size\&.) This interface must be combined virtually with an element class in order to be useful\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <hparser/formats/descriptor-output\&.hpp>\fP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "virtual const \fBoutput_sender\fP * \fBsend_data\fP (\fBdata_output\fP *) const "
+.br
+.RI "\fISequential output request\&. \fP"
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "virtual bool \fBsend_descriptor\fP (\fBdata_output\fP *) const =0"
+.br
+.RI "\fIOutput section descriptor\&. \fP"
+.in -1c
+.SH "Member Function Documentation"
+.PP 
+.SS "virtual const \fBoutput_sender\fP* descriptor_output::send_data (\fBdata_output\fP *) const\fC [virtual]\fP"
+This function is implemented to send the section's descriptor, send its own content, then pass control to its first sub-section\&. After all sub-sections have passed their data, control goes to the next section, and finally to its parent\&. 
+.PP
+Reimplemented from \fBoutput_sender\fP\&.
+.SS "virtual bool descriptor_output::send_descriptor (\fBdata_output\fP *) const\fC [protected]\fP, \fC [pure virtual]\fP"
+This function is called to send the section's descriptor to output\&. 
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for hparser from the source code\&.

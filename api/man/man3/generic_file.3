@@ -1,0 +1,155 @@
+.TH "generic_file" 3 "Fri Dec 5 2014" "Version hparser-1.0.0" "hparser" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+generic_file \- 
+.PP
+Generic file input/output interface\&.
+.PP
+This class provides a shell for implementing a file input and output interface\&. This class implements most of the required file functions and provides a std::fstream to derived classes so they can only need to worry about extracting input and sending output\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <hparser/aux/generic-file\&.hpp>\fP
+.SS "Public Member Functions"
+
+.PP
+.RI "\fBFile Name Functions\fP"
+.br
+Retrieve the current file name\&. 
+.PP
+.in +1c
+.in +1c
+.ti -1c
+.RI "const file_name & \fBfile\fP () const "
+.br
+.ti -1c
+.RI "bool \fBset_file\fP (const file_name &)"
+.br
+.in -1c
+.in -1c
+.PP
+.RI "\fBImplemented from file_user\fP"
+.br
+
+.in +1c
+.in +1c
+.ti -1c
+.RI "bool \fBis_open\fP ()"
+.br
+.ti -1c
+.RI "bool \fBclose_file\fP ()"
+.br
+.in -1c
+.in -1c
+.PP
+.RI "\fBImplemented from data_input\fP"
+.br
+
+.in +1c
+.in +1c
+.ti -1c
+.RI "bool \fBend_of_data\fP () const "
+.br
+.in -1c
+.in -1c
+.PP
+.RI "\fBImplemented from data_output\fP"
+.br
+
+.in +1c
+.in +1c
+.ti -1c
+.RI "bool \fBis_closed\fP () const "
+.br
+.in -1c
+.in -1c
+.PP
+.RI "\fBRead-related Functions\fP"
+.br
+
+.in +1c
+.in +1c
+.ti -1c
+.RI "file_position \fBread_position\fP ()"
+.br
+.ti -1c
+.RI "bool \fBset_read_position\fP (file_position)"
+.br
+.ti -1c
+.RI "file_position \fBfile_size\fP ()"
+.br
+.in -1c
+.in -1c
+.PP
+.RI "\fBWrite-related Functions\fP"
+.br
+
+.in +1c
+.in +1c
+.ti -1c
+.RI "file_position \fBwrite_position\fP ()"
+.br
+.ti -1c
+.RI "bool \fBset_write_position\fP (file_position)"
+.br
+.in -1c
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "std::fstream \fBfile_stream\fP"
+.br
+.ti -1c
+.RI "file_name \fBcurrent_file\fP"
+.br
+.ti -1c
+.RI "unsigned char \fBopen_state\fP"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+.SH "Member Function Documentation"
+.PP 
+.SS "bool generic_file::set_file (const file_name &)"
+Set the current file name\&. 
+.SS "bool generic_file::is_open ()\fC [virtual]\fP"
+Determine if the file is open\&. 
+.PP
+Implements \fBfile_user\fP\&.
+.SS "bool generic_file::close_file ()\fC [virtual]\fP"
+Close the file\&. 
+.PP
+Implements \fBfile_user\fP\&.
+.SS "bool generic_file::end_of_data () const\fC [virtual]\fP"
+End-of-data determination\&. 
+.PP
+Implements \fBdata_input\fP\&.
+.SS "bool generic_file::is_closed () const\fC [virtual]\fP"
+Closed file determination\&. 
+.PP
+Implements \fBdata_output\fP\&.
+.SS "file_position generic_file::read_position ()"
+Obtain the current read position\&. 
+.SS "bool generic_file::set_read_position (file_position)"
+Set the current read position\&. 
+.SS "file_position generic_file::file_size ()"
+Obtain the current file's size\&. 
+.SS "file_position generic_file::write_position ()"
+Obtain the current write position\&. 
+.SS "bool generic_file::set_write_position (file_position)"
+Set the current write position\&. 
+.SH "Member Data Documentation"
+.PP 
+.SS "std::fstream generic_file::file_stream\fC [protected]\fP"
+File stream for use by implementing class\&. 
+.SS "file_name generic_file::current_file\fC [protected]\fP"
+Name of the current file\&. 
+.SS "unsigned char generic_file::open_state\fC [protected]\fP"
+State of being open\&. 
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for hparser from the source code\&.

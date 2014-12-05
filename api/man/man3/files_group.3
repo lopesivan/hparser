@@ -1,0 +1,85 @@
+.TH "File Interfaces and Functions" 3 "Fri Dec 5 2014" "Version hparser-1.0.0" "hparser" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+File Interfaces and Functions \- 
+.SS "Classes"
+
+.in +1c
+.ti -1c
+.RI "class \fBgeneric_file\fP"
+.br
+.RI "\fIGeneric file input/output interface\&.
+.PP
+This class provides a shell for implementing a file input and output interface\&. This class implements most of the required file functions and provides a std::fstream to derived classes so they can only need to worry about extracting input and sending output\&. \fP"
+.ti -1c
+.RI "class \fBtext_file\fP"
+.br
+.RI "\fIText input/output file interface\&.
+.PP
+This class implements the open_file function of \fBgeneric_file\fP to open files in text mode\&. \fP"
+.ti -1c
+.RI "class \fBbin_file\fP"
+.br
+.RI "\fIBinary input/output file interface\&.
+.PP
+This class implements the open_file function of \fBgeneric_file\fP to open files in binary mode\&. \fP"
+.ti -1c
+.RI "class \fBstandard_error\fP"
+.br
+.RI "\fIStandard error interface\&.
+.PP
+This class is not yet written! \fP"
+.ti -1c
+.RI "class \fBstandard_input\fP"
+.br
+.RI "\fIStandard input interface\&.
+.PP
+This class is not yet written! \fP"
+.ti -1c
+.RI "class \fBstandard_output\fP"
+.br
+.RI "\fIStandard output interface\&.
+.PP
+This class is not yet written! \fP"
+.ti -1c
+.RI "class \fBfile_input\fP"
+.br
+.RI "\fIFile input source\&.
+.PP
+This is a convenience class for implementing both \fBdata_input\fP and \fBfile_user\fP in the same object\&. \fP"
+.ti -1c
+.RI "class \fBfile_output\fP"
+.br
+.RI "\fIFile output destination\&.
+.PP
+This is a convenience class for implementing both \fBdata_output\fP and \fBfile_user\fP in the same object\&. \fP"
+.ti -1c
+.RI "class \fBfile_user\fP"
+.br
+.RI "\fIGeneral file functions\&.
+.PP
+This class provides the minimal functionality of a file interface required internally by the library\&. These functions are common to both input and output file interfaces\&. \fP"
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "bool \fBload_file\fP (\fBdata_importer\fP *, \fBfile_input\fP *)"
+.br
+.RI "\fIFile importation function\&.
+.PP
+This function imports file data using a \fBfile_input\fP and provides control to the \fBdata_importer\fP given\&. If the \fBfile_input\fP is not open then the function opens it\&. If it is already open then it leaves it open after importation is done with the index left where it was the last operation\&. \fP"
+.ti -1c
+.RI "bool \fBsave_file\fP (const \fBdata_exporter\fP *, \fBfile_output\fP *)"
+.br
+.RI "\fIFile exportation function\&.
+.PP
+This function exports file data using a \fBfile_output\fP and provides control to the \fBdata_exporter\fP given\&. If it is already open then it leaves it open after importation is done with the index left where it was the last operation\&. \fP"
+.in -1c
+.SH "Detailed Description"
+.PP 
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for hparser from the source code\&.

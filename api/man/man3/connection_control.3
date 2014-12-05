@@ -1,0 +1,75 @@
+.TH "connection_control" 3 "Fri Dec 5 2014" "Version hparser-1.0.0" "hparser" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+connection_control \- 
+.PP
+Element connection control interface\&.
+.PP
+This class provides connection control functions to authorize two elements to connect, to connect them, and to disconnect them\&. These functions are intended to be called internally by the tree when it is modified to gain approval from and notify a parallel interface\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <hparser/connection-control\&.hpp>\fP
+.SS "Public Member Functions"
+
+.PP
+.RI "\fBConnection Functions\fP"
+.br
+Functions to connect or disconnect 
+.PP
+.in +1c
+.in +1c
+.ti -1c
+.RI "virtual bool \fBconnect\fP ()=0"
+.br
+.RI "\fIConnect the parallel interface\&. \fP"
+.ti -1c
+.RI "virtual bool \fBdisconnect\fP ()=0"
+.br
+.RI "\fIDisconnect the parallel interface\&. \fP"
+.in -1c
+.in -1c
+.PP
+.RI "\fBPermission Functions\fP"
+.br
+Functions to gain permission to connect 
+.PP
+.in +1c
+.in +1c
+.ti -1c
+.RI "virtual bool \fBallow_next\fP (const \fBstorage_section\fP *) const =0"
+.br
+.RI "\fIAuthorize an element to be added directly after\&. \fP"
+.ti -1c
+.RI "virtual bool \fBallow_child\fP (const \fBstorage_section\fP *) const =0"
+.br
+.RI "\fIAuthorize an element to be added below\&. \fP"
+.ti -1c
+.RI "virtual bool \fBallow_here\fP (const \fBstorage_section\fP *) const =0"
+.br
+.RI "\fIAuthorize a replacement element\&. \fP"
+.in -1c
+.in -1c
+.SH "Member Function Documentation"
+.PP 
+.SS "virtual bool connection_control::connect ()\fC [pure virtual]\fP"
+This function should be implemented in a final element class so that it connects/reconnects a parallel interface such as a GUI\&. 
+.SS "virtual bool connection_control::disconnect ()\fC [pure virtual]\fP"
+This function should be implemented in a final element class so that it disconnects a parallel interface such as a GUI\&. 
+.SS "virtual bool connection_control::allow_next (const \fBstorage_section\fP *) const\fC [pure virtual]\fP"
+This function requests authorization to connect an element directly following this object\&. This function should check that it makes sense to put the element after this object at most\&. Structural checks beyond that are handled by the library\&. 
+.PP
+Implemented in \fBlinked_section\fP\&.
+.SS "virtual bool connection_control::allow_child (const \fBstorage_section\fP *) const\fC [pure virtual]\fP"
+This function requests authorization to connect an element directly below this object\&. This function should check that it makes sense to put the element underneath this object at most\&. Structural checks beyond that are handled by the library\&. 
+.SS "virtual bool connection_control::allow_here (const \fBstorage_section\fP *) const\fC [pure virtual]\fP"
+This function requests authorization to connect an element directly below this object\&. This function should check that it makes sense to put the element in place of this object at most\&. Structural checks beyond that are handled by the library\&. 
+.PP
+Implemented in \fBlinked_section\fP\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for hparser from the source code\&.

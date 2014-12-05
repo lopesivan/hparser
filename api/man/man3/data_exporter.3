@@ -1,0 +1,43 @@
+.TH "data_exporter" 3 "Fri Dec 5 2014" "Version hparser-1.0.0" "hparser" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+data_exporter \- 
+.PP
+Data exportation manager\&.
+.PP
+This class is to manage the exportation of an entire set of data\&. This should serve as a part of the base of a tree and should receive initial control of \fBdata_output\fP\&. Depending on the implementation, it should pass control of output to its first element using the \fBoutput_sender\fP functions send_data and collect_data\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <hparser/data-output\&.hpp>\fP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "virtual const \fBoutput_sender\fP * \fBexport_data\fP (\fBdata_output\fP *) const =0"
+.br
+.RI "\fIData exportation entry point\&. \fP"
+.in -1c
+.SH "Detailed Description"
+.PP 
+
+.PP
+\fBSee also:\fP
+.RS 4
+\fBdata_importer\fP provides complimentary output functionality\&. 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "virtual const \fBoutput_sender\fP* data_exporter::export_data (\fBdata_output\fP *) const\fC [pure virtual]\fP"
+This will be the initial exportation call at the base of the tree\&. This function should initiate automatic exportation of the tree\&. 
+.PP
+Implemented in \fBoutput_manager\fP\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for hparser from the source code\&.

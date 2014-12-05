@@ -1,0 +1,51 @@
+.TH "Implementation-defined Classes" 3 "Fri Dec 5 2014" "Version hparser-1.0.0" "hparser" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Implementation-defined Classes \- 
+.SS "Classes"
+
+.in +1c
+.ti -1c
+.RI "class \fB__input_section__\fP"
+.br
+.RI "\fIInput data type (user-defined\&.)
+.PP
+This class provides an interface slot for data to be input and parsed by components of the library\&. \fP"
+.ti -1c
+.RI "class \fB__output_section__\fP"
+.br
+.RI "\fIOutput data type (user-defined\&.)
+.PP
+This class provides an interface slot for data to be output by components of the library\&. \fP"
+.ti -1c
+.RI "class \fB__composite_data__\fP"
+.br
+.RI "\fIComposite input/output data type (user-defined\&.)
+.PP
+This class provides an interface slot for data to be expanded and combined by components of this library\&. \fP"
+.ti -1c
+.RI "class \fB__comm_message__\fP"
+.br
+.RI "\fIMessage data type (user-defined\&.)
+.PP
+This class provides an interface slot for messages to be passed between components of this library\&. \fP"
+.ti -1c
+.RI "class \fB__scope_identifier__\fP"
+.br
+.RI "\fIHierarchy scope type (user-defined\&.)
+.PP
+This class provides an interface slot for passing scope identifiers between components of this library\&. \fP"
+.ti -1c
+.RI "class \fB__element_interface__\fP"
+.br
+.RI "\fIParallel interface type (user-defined\&.)
+.PP
+This class provides an interface slot for components of this library to access a parallel structural interface such as a GUI\&. \fP"
+.in -1c
+.SH "Detailed Description"
+.PP 
+'hparser' uses the following class declarations to allow object interfaces to provide the lib user with channels of communication\&. While the library doesn't provide functionality for these classes, their mere declarations and use as virtual function arguments in lib classes allows the lib user to define how to pass information between lib objects\&. 
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for hparser from the source code\&.

@@ -1,0 +1,12 @@
+<map id="User&#45;intended Classes" name="User&#45;intended Classes">
+<area shape="rect" id="node1" href="$group__system__group.html" title="Interfaces for External\l Systems" alt="" coords="388,45,551,86"/>
+<area shape="rect" id="node2" href="$group__files__group.html" title="File Interfaces and\l Functions" alt="" coords="400,131,539,173"/>
+<area shape="rect" id="node4" href="$group__element__group.html" title="Structural Elements" alt="" coords="398,197,541,224"/>
+<area shape="rect" id="node5" href="$group__input__group.html" title="Input and Parsing" alt="" coords="403,356,536,383"/>
+<area shape="rect" id="node6" href="$group__output__group.html" title="Output and Exportation" alt="" coords="386,504,553,531"/>
+<area shape="rect" id="node7" href="$group__base__group.html" title="Structural Base Components" alt="" coords="369,593,570,620"/>
+<area shape="rect" id="node8" href="$group__storage__group.html" title="Storage Components" alt="" coords="391,653,547,680"/>
+<area shape="rect" id="node9" href="$group__resource__group.html" title="Random&#45;access Resources" alt="" coords="372,743,567,769"/>
+<area shape="rect" id="node10" href="$group__descriptor__group.html" title="Descriptor Format Interfaces" alt="" coords="368,817,571,844"/>
+<area shape="rect" id="node11" href="$group__automation__group.html" title="Input and Output Automation" alt="" coords="369,892,569,919"/>
+</map>

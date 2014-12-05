@@ -1,0 +1,40 @@
+.TH "output_manager" 3 "Fri Dec 5 2014" "Version hparser-1.0.0" "hparser" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+output_manager \- 
+.PP
+Automatic data exporter\&.
+.PP
+This class automates output of data from a tree\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <hparser/output-manager\&.hpp>\fP
+.SS "Public Member Functions"
+
+.PP
+.RI "\fBImplemented from data_exporter\fP"
+.br
+
+.in +1c
+.in +1c
+.ti -1c
+.RI "virtual const \fBoutput_sender\fP * \fBexport_data\fP (\fBdata_output\fP *) const "
+.br
+.RI "\fIExport data\&. \fP"
+.in -1c
+.in -1c
+.SS "Additional Inherited Members"
+.SH "Member Function Documentation"
+.PP 
+.SS "virtual const \fBoutput_sender\fP* output_manager::export_data (\fBdata_output\fP *) const\fC [virtual]\fP"
+This function continually calls the \fBoutput_sender\fP function send_output on the result of that function's return, starting with this object\&. Once 'this' or NULL are returned the function exits, returning that value\&. This allows control to be passed to new elements until completion or an error\&. 
+.PP
+Implements \fBdata_exporter\fP\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for hparser from the source code\&.

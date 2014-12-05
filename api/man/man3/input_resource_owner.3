@@ -1,0 +1,41 @@
+.TH "input_resource_owner" 3 "Fri Dec 5 2014" "Version hparser-1.0.0" "hparser" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+input_resource_owner \- 
+.PP
+Random-access input resource owner\&.
+.PP
+This class provides an interface for providing an input resource\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <hparser/input-resource\&.hpp>\fP
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "virtual \fBinput_resource\fP * \fBget_input_resource\fP ()"
+.br
+.in -1c
+.SS "Static Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static \fBinput_resource\fP * \fBget_input_resource\fP (\fBinput_resource_owner\fP *)"
+.br
+.in -1c
+.SH "Member Function Documentation"
+.PP 
+.SS "virtual \fBinput_resource\fP* input_resource_owner::get_input_resource ()\fC [protected]\fP, \fC [virtual]\fP"
+Obtain the input resource\&. 
+.PP
+Reimplemented in \fBlinked_section\fP\&.
+.SS "static \fBinput_resource\fP* input_resource_owner::get_input_resource (\fBinput_resource_owner\fP *)\fC [static]\fP, \fC [protected]\fP"
+Obtain the input resource from another owner\&. 
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for hparser from the source code\&.

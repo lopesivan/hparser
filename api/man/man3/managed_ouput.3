@@ -1,0 +1,45 @@
+.TH "managed_ouput" 3 "Fri Dec 5 2014" "Version hparser-1.0.0" "hparser" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+managed_ouput \- 
+.PP
+Common formatted-output functions\&.
+.PP
+This class provides the basic functions required for format classes to automatically export output\&. This is the minimum interface required by all format classes provided\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <hparser/formats/managed-output\&.hpp>\fP
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "virtual bool \fBsend_content\fP (\fBdata_output\fP *) const =0"
+.br
+.ti -1c
+.RI "virtual const \fBoutput_sender\fP * \fBget_subsection\fP () const =0"
+.br
+.ti -1c
+.RI "virtual const \fBoutput_sender\fP * \fBget_next\fP () const =0"
+.br
+.ti -1c
+.RI "virtual const \fBoutput_sender\fP * \fBget_out_parent\fP () const =0"
+.br
+.in -1c
+.SH "Member Function Documentation"
+.PP 
+.SS "virtual bool managed_ouput::send_content (\fBdata_output\fP *) const\fC [protected]\fP, \fC [pure virtual]\fP"
+Send the actual content of this element\&. 
+.SS "virtual const \fBoutput_sender\fP* managed_ouput::get_subsection () const\fC [protected]\fP, \fC [pure virtual]\fP"
+Return the first sub-element of this element\&. 
+.SS "virtual const \fBoutput_sender\fP* managed_ouput::get_next () const\fC [protected]\fP, \fC [pure virtual]\fP"
+Return the first peer element following this element\&. 
+.SS "virtual const \fBoutput_sender\fP* managed_ouput::get_out_parent () const\fC [protected]\fP, \fC [pure virtual]\fP"
+Return the parent of this element\&. 
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for hparser from the source code\&.

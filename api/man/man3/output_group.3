@@ -1,0 +1,122 @@
+.TH "Output and Exportation" 3 "Fri Dec 5 2014" "Version hparser-1.0.0" "hparser" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Output and Exportation \- 
+.SS "Classes"
+
+.in +1c
+.ti -1c
+.RI "class \fBstandard_error\fP"
+.br
+.RI "\fIStandard error interface\&.
+.PP
+This class is not yet written! \fP"
+.ti -1c
+.RI "class \fBstandard_output\fP"
+.br
+.RI "\fIStandard output interface\&.
+.PP
+This class is not yet written! \fP"
+.ti -1c
+.RI "class \fBdata_output\fP"
+.br
+.RI "\fIData output destination\&.
+.PP
+This class serves as a generic output interface for data being exported from the tree\&. This interface receives the output data from various components of the tree\&. \fP"
+.ti -1c
+.RI "class \fBoutput_sender\fP"
+.br
+.RI "\fIData output interface\&.
+.PP
+This class serves as the output interface of tree elements\&. This interface is used to export the data contained in the tree in a linear (storable in a file or printable in a console) format\&. Output objects are implementation defined\&. \fP"
+.ti -1c
+.RI "class \fBdata_exporter\fP"
+.br
+.RI "\fIData exportation manager\&.
+.PP
+This class is to manage the exportation of an entire set of data\&. This should serve as a part of the base of a tree and should receive initial control of \fBdata_output\fP\&. Depending on the implementation, it should pass control of output to its first element using the \fBoutput_sender\fP functions send_data and collect_data\&. \fP"
+.ti -1c
+.RI "class \fBfile_output\fP"
+.br
+.RI "\fIFile output destination\&.
+.PP
+This is a convenience class for implementing both \fBdata_output\fP and \fBfile_user\fP in the same object\&. \fP"
+.ti -1c
+.RI "class \fBdescriptor_output\fP"
+.br
+.RI "\fIOutput interface for descriptor-formated sections\&.
+.PP
+This class provides a simple interface for exporting data that uses a descriptor-style format (where each section's header contains all information pertaining to the section's size\&.) This interface must be combined virtually with an element class in order to be useful\&. \fP"
+.ti -1c
+.RI "class \fBmanaged_ouput\fP"
+.br
+.RI "\fICommon formatted-output functions\&.
+.PP
+This class provides the basic functions required for format classes to automatically export output\&. This is the minimum interface required by all format classes provided\&. \fP"
+.ti -1c
+.RI "class \fBtagged_output\fP"
+.br
+.RI "\fIOutput interface for tag-formated sections\&.
+.PP
+This class provides a simple interface for exporting data that uses a tagged (e\&.g\&. XML) format\&. This interface must be combined virtually with an element class in order to be useful\&. \fP"
+.ti -1c
+.RI "class \fBmulti_destination\fP"
+.br
+.RI "\fIMultiple-destination data output\&.
+.PP
+This class serves as an output source selector\&. The deriving class will generally have more than one \fBdata_output\fP built in and will select one of the destinations for a particular input operation based on that class' own criteria\&. \fP"
+.ti -1c
+.RI "class \fBoutput_control\fP"
+.br
+.RI "\fIData output recursion control\&.
+.PP
+This class provides recursion control to output interface classes\&. \fP"
+.ti -1c
+.RI "class \fBoutput_manager\fP"
+.br
+.RI "\fIAutomatic data exporter\&.
+.PP
+This class automates output of data from a tree\&. \fP"
+.ti -1c
+.RI "class \fBoutput_resource\fP"
+.br
+.RI "\fIRandom-access output resource\&.
+.PP
+This class provides a random-access output interface\&. \fP"
+.ti -1c
+.RI "class \fBoutput_resource_owner\fP"
+.br
+.RI "\fIRandom-access output resource owner\&.
+.PP
+This class provides an interface for providing an output resource\&. \fP"
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "bool \fBexport_data\fP (const \fBdata_exporter\fP *, \fBdata_output\fP *)"
+.br
+.RI "\fIData exportation request\&.
+.PP
+This function exports data from a \fBdata_output\fP and sends it to the \fBdata_exporter\fP\&. \fP"
+.in -1c
+.SH "Detailed Description"
+.PP 
+
+.SH "Function Documentation"
+.PP 
+.SS "bool export_data (const \fBdata_exporter\fP *, \fBdata_output\fP *)"
+
+.PP
+\fBSee also:\fP
+.RS 4
+\fBimport_data\fP provides complimentary input functionality\&.
+.PP
+\fBsave_file\fP provides corresponding file export functionality\&. 
+.RE
+.PP
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for hparser from the source code\&.

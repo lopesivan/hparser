@@ -1,0 +1,40 @@
+.TH "input_manager" 3 "Fri Dec 5 2014" "Version hparser-1.0.0" "hparser" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+input_manager \- 
+.PP
+Automatic data importer\&.
+.PP
+This class automates input of data for construction of a tree\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <hparser/input-manager\&.hpp>\fP
+.SS "Public Member Functions"
+
+.PP
+.RI "\fBImplemented from data_importer\fP"
+.br
+
+.in +1c
+.in +1c
+.ti -1c
+.RI "virtual \fBinput_receiver\fP * \fBimport_data\fP (\fBdata_input\fP *)"
+.br
+.RI "\fIImport data\&. \fP"
+.in -1c
+.in -1c
+.SS "Additional Inherited Members"
+.SH "Member Function Documentation"
+.PP 
+.SS "virtual \fBinput_receiver\fP* input_manager::import_data (\fBdata_input\fP *)\fC [virtual]\fP"
+This function continually calls the \fBinput_receiver\fP function receive_input on the result of that function's return, starting with this object\&. Once 'this' or NULL are returned the function exits, returning that value\&. This allows control to be passed to new elements until completion or an error\&. 
+.PP
+Implements \fBdata_importer\fP\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for hparser from the source code\&.

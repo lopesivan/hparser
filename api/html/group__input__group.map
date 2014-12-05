@@ -1,0 +1,9 @@
+<map id="Input and Parsing" name="Input and Parsing">
+<area shape="rect" id="node1" href="$group__system__group.html" title="Interfaces for External\l Systems" alt="" coords="348,38,511,79"/>
+<area shape="rect" id="node2" href="$group__files__group.html" title="File Interfaces and\l Functions" alt="" coords="360,103,499,145"/>
+<area shape="rect" id="node3" href="$group__user__group.html" title="User&#45;intended Classes" alt="" coords="347,273,512,300"/>
+<area shape="rect" id="node5" href="$group__base__group.html" title="Structural Base Components" alt="" coords="329,333,530,360"/>
+<area shape="rect" id="node6" href="$group__resource__group.html" title="Random&#45;access Resources" alt="" coords="332,407,527,433"/>
+<area shape="rect" id="node7" href="$group__descriptor__group.html" title="Descriptor Format Interfaces" alt="" coords="328,457,531,484"/>
+<area shape="rect" id="node8" href="$group__automation__group.html" title="Input and Output Automation" alt="" coords="329,531,529,557"/>
+</map>

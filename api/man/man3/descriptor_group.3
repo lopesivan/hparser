@@ -1,0 +1,33 @@
+.TH "Descriptor Format Interfaces" 3 "Fri Dec 5 2014" "Version hparser-1.0.0" "hparser" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Descriptor Format Interfaces \- 
+.SS "Classes"
+
+.in +1c
+.ti -1c
+.RI "class \fBdescriptor_input\fP"
+.br
+.RI "\fIInput interface for descriptor-formated sections\&.
+.PP
+This class provides a simple interface for parsing data that uses a descriptor-style format (where each section's header contains all information pertaining to the section's size\&.) This interface must be combined virtually with an element class in order to be useful\&. \fP"
+.ti -1c
+.RI "class \fBdescriptor_output\fP"
+.br
+.RI "\fIOutput interface for descriptor-formated sections\&.
+.PP
+This class provides a simple interface for exporting data that uses a descriptor-style format (where each section's header contains all information pertaining to the section's size\&.) This interface must be combined virtually with an element class in order to be useful\&. \fP"
+.ti -1c
+.RI "class \fBdescriptor_storage\fP"
+.br
+.RI "\fICombined descriptor input/output\&.
+.PP
+This is a convenience class for implementing both \fBdescriptor_input\fP and \fBdescriptor_output\fP in the same object\&. \fP"
+.in -1c
+.SH "Detailed Description"
+.PP 
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for hparser from the source code\&.

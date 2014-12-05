@@ -1,0 +1,36 @@
+.TH "structure_base" 3 "Fri Dec 5 2014" "Version hparser-1.0.0" "hparser" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+structure_base \- 
+.PP
+Hierarchy base container\&.
+.PP
+This class serves as a simple base object for a hierarchy\&. It is the parent of the base element of the tree, and is therefore the base of the tree\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <hparser/structure-base\&.hpp>\fP
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBstorage_section\fP * \fBfirst_branch\fP () const "
+.br
+.ti -1c
+.RI "\fBsection_releaser\fP \fBadd_branch\fP (\fBsection_releaser\fP)"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+.SH "Member Function Documentation"
+.PP 
+.SS "\fBstorage_section\fP* structure_base::first_branch () const\fC [protected]\fP"
+Obtain the first branch of the tree\&. 
+.SS "\fBsection_releaser\fP structure_base::add_branch (\fBsection_releaser\fP)\fC [protected]\fP"
+Add a new branch to the tree\&. 
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for hparser from the source code\&.

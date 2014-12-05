@@ -1,0 +1,99 @@
+.TH "Structural Elements" 3 "Fri Dec 5 2014" "Version hparser-1.0.0" "hparser" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Structural Elements \- 
+.SS "Classes"
+
+.in +1c
+.ti -1c
+.RI "class \fBlinked_section\fP"
+.br
+.RI "\fIPartially-abstract tree element class\&.
+.PP
+This class provides linking functionality for \fBstorage_section\fP\&. This class owns the element following it and its first child element\&. This means that upon its own deletion it deletes its child elements and the following element if this element has no owner itself\&. Some functions are overridden or implemented with specific functionality unique to a linked element\&. \fP"
+.ti -1c
+.RI "class \fBparent_storage\fP"
+.br
+.RI "\fIContainer class for hierarchy elements\&.
+.PP
+This class is the basic container class for the hierarchy\&. It's the base class for all hierarchy elements and hierarchy bases\&. It provides the necessary interfaces for the hierarchy to function\&. \fP"
+.ti -1c
+.RI "class \fBstorage_section\fP"
+.br
+.RI "\fIAbstract tree element class\&.
+.PP
+This is the basic structural element of the tree\&. It connects to sub-elements and elements following it\&. This class provides the complete interface required for all operations on the tree elements\&. This class relies on several implementation-defined classes to extend the tree's interface to interfaces external-to and unknown-to this library\&. \fP"
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "bool \fBswap_elements\fP (\fBstorage_section\fP *, \fBstorage_section\fP *)"
+.br
+.ti -1c
+.RI "bool \fBoperator>>\fP (const \fBstorage_section\fP &, const \fBstorage_section\fP &)"
+.br
+.ti -1c
+.RI "bool \fBoperator<<\fP (const \fBstorage_section\fP &, const \fBstorage_section\fP &)"
+.br
+.ti -1c
+.RI "bool \fBoperator>\fP (const \fBstorage_section\fP &, const \fBstorage_section\fP &)"
+.br
+.ti -1c
+.RI "bool \fBoperator<\fP (const \fBstorage_section\fP &, const \fBstorage_section\fP &)"
+.br
+.ti -1c
+.RI "bool \fBoperator==\fP (const \fBstorage_section\fP &, const \fBstorage_section\fP &)"
+.br
+.ti -1c
+.RI "bool \fBoperator!=\fP (const \fBstorage_section\fP &, const \fBstorage_section\fP &)"
+.br
+.ti -1c
+.RI "bool \fBoperator>=\fP (const \fBstorage_section\fP &, const \fBstorage_section\fP &)"
+.br
+.ti -1c
+.RI "bool \fBoperator<=\fP (const \fBstorage_section\fP &, const \fBstorage_section\fP &)"
+.br
+.ti -1c
+.RI "bool \fBoperator&&\fP (const \fBstorage_section\fP &, const \fBstorage_section\fP &)"
+.br
+.ti -1c
+.RI "bool \fBoperator^\fP (const \fBstorage_section\fP &, const \fBstorage_section\fP &)"
+.br
+.ti -1c
+.RI "bool \fBoperator||\fP (const \fBstorage_section\fP &, const \fBstorage_section\fP &)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+
+.SH "Function Documentation"
+.PP 
+.SS "bool swap_elements (\fBstorage_section\fP *, \fBstorage_section\fP *)"
+Swap 2 elements in the hierarchy structure\&. Elements do not need to be in the same hierarchy to be swapped\&. The only requirement is that all reconnections are allowed by the implementations of the \fBconnection_control\fP interfaces of the effected elements\&. 
+.SS "bool operator>> (const \fBstorage_section\fP &, const \fBstorage_section\fP &)"
+Check for direct and indirect parent/child or previous/next ownership of two elements\&. 
+.SS "bool operator<< (const \fBstorage_section\fP &, const \fBstorage_section\fP &)"
+Check for direct and indirect child/parent or next/previous ownership of two elements\&. 
+.SS "bool operator> (const \fBstorage_section\fP &, const \fBstorage_section\fP &)"
+Check for direct and indirect parent/child ownership of two elements\&. 
+.SS "bool operator< (const \fBstorage_section\fP &, const \fBstorage_section\fP &)"
+Check for direct and indirect child/parent ownership of two elements\&. 
+.SS "bool operator== (const \fBstorage_section\fP &, const \fBstorage_section\fP &)"
+Check for parent/child ownership independence, or equality, of two elements\&. 
+.SS "bool operator!= (const \fBstorage_section\fP &, const \fBstorage_section\fP &)"
+Check for parent/child ownership dependence, or inequality, of two elements\&. 
+.SS "bool operator>= (const \fBstorage_section\fP &, const \fBstorage_section\fP &)"
+Check for direct and indirect previous/next ownership of two elements\&. 
+.SS "bool operator<= (const \fBstorage_section\fP &, const \fBstorage_section\fP &)"
+Check for direct and indirect next/previous ownership of two elements\&. 
+.SS "bool operator&& (const \fBstorage_section\fP &, const \fBstorage_section\fP &)"
+Check that two elements are peers on the same branch of the same hierarchy\&. 
+.SS "bool operator^ (const \fBstorage_section\fP &, const \fBstorage_section\fP &)"
+Check that two elements aren't peers on the same branch of the same hierarchy\&. 
+.SS "bool operator|| (const \fBstorage_section\fP &, const \fBstorage_section\fP &)"
+Check that two elements are on completely independent hierarchies\&. 
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for hparser from the source code\&.

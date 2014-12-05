@@ -1,0 +1,43 @@
+.TH "data_importer" 3 "Fri Dec 5 2014" "Version hparser-1.0.0" "hparser" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+data_importer \- 
+.PP
+Data importation manager\&.
+.PP
+This class is to manage the importation of an entire set of data\&. This should serve as a part of the base of a tree and should receive initial control of \fBdata_input\fP\&. Depending on the implementation, it should create the highest element (which should contain all other elements) and should allow the rest of the tree to self assemble using the \fBinput_receiver\fP functions receive_data and expand_data\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <hparser/data-input\&.hpp>\fP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "virtual \fBinput_receiver\fP * \fBimport_data\fP (\fBdata_input\fP *)=0"
+.br
+.RI "\fIData importation entry point\&. \fP"
+.in -1c
+.SH "Detailed Description"
+.PP 
+
+.PP
+\fBSee also:\fP
+.RS 4
+\fBdata_exporter\fP provides complimentary output functionality\&. 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "virtual \fBinput_receiver\fP* data_importer::import_data (\fBdata_input\fP *)\fC [pure virtual]\fP"
+This will be the initial parsing call at the base of the tree\&. This function should initiate the assembly of the tree\&. 
+.PP
+Implemented in \fBinput_manager\fP\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for hparser from the source code\&.

@@ -1,0 +1,50 @@
+.TH "managed_input" 3 "Fri Dec 5 2014" "Version hparser-1.0.0" "hparser" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+managed_input \- 
+.PP
+Common formatted-input functions\&.
+.PP
+This class provides the basic functions required for format classes to automatically parse input\&. This is the minimum interface required by all format classes provided\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <hparser/formats/managed-input\&.hpp>\fP
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "virtual bool \fBmakes_sense\fP (\fBdata_input\fP *) const =0"
+.br
+.ti -1c
+.RI "virtual bool \fBis_subsection\fP (\fBdata_input\fP *) const =0"
+.br
+.ti -1c
+.RI "virtual \fBinput_receiver\fP * \fBnew_subsection\fP (\fBdata_input\fP *)=0"
+.br
+.ti -1c
+.RI "virtual \fBinput_receiver\fP * \fBapply_input\fP (\fBdata_input\fP *)=0"
+.br
+.ti -1c
+.RI "virtual \fBinput_receiver\fP * \fBget_in_parent\fP () const =0"
+.br
+.in -1c
+.SH "Member Function Documentation"
+.PP 
+.SS "virtual bool managed_input::makes_sense (\fBdata_input\fP *) const\fC [protected]\fP, \fC [pure virtual]\fP"
+Determine if the current data makes sense as input for the desired type of input\&. For example: Is it a complete tag, descriptor, or text section? 
+.SS "virtual bool managed_input::is_subsection (\fBdata_input\fP *) const\fC [protected]\fP, \fC [pure virtual]\fP"
+Determine if the current data indicates a new sub-element to this section or element\&. 
+.SS "virtual \fBinput_receiver\fP* managed_input::new_subsection (\fBdata_input\fP *)\fC [protected]\fP, \fC [pure virtual]\fP"
+Based on a true return from is_subsection, create a sub-element to be added as a child to this element\&. This normally will have the same data index as is_subsection to allow parsing for the correct element type\&. This function should increment input so that the sub-element starts parsing with the next input index\&. The new element must be added as a child with AddChild before returning it\&. 
+.SS "virtual \fBinput_receiver\fP* managed_input::apply_input (\fBdata_input\fP *)\fC [protected]\fP, \fC [pure virtual]\fP"
+If the data is valid and does not indicate a sub-element, this function is called to apply the input\&. This should parse and store input data until the section this element contains is complete, as denoted by a fixed size or a closing tag\&. This function should return \fIthis\fP after each input operation for each new section of data so that it goes through the evaluation process\&. Once input is applied, increment the input counter\&. 
+.SS "virtual \fBinput_receiver\fP* managed_input::get_in_parent () const\fC [protected]\fP, \fC [pure virtual]\fP"
+Return the parent of this element\&. 
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for hparser from the source code\&.

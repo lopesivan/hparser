@@ -1,0 +1,338 @@
+.TH "storage_section" 3 "Fri Dec 5 2014" "Version hparser-1.0.0" "hparser" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+storage_section \- 
+.PP
+Abstract tree element class\&.
+.PP
+This is the basic structural element of the tree\&. It connects to sub-elements and elements following it\&. This class provides the complete interface required for all operations on the tree elements\&. This class relies on several implementation-defined classes to extend the tree's interface to interfaces external-to and unknown-to this library\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <hparser/storage-section\&.hpp>\fP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "virtual \fBparent_storage\fP * \fBowner\fP () const =0"
+.br
+.ti -1c
+.RI "virtual location_count \fBself_location\fP () const =0"
+.br
+.ti -1c
+.RI "virtual \fB~storage_section\fP ()"
+.br
+.RI "\fIDestructor\&. \fP"
+.in -1c
+.PP
+.RI "\fBUpdate Functions\fP"
+.br
+
+.in +1c
+.in +1c
+.ti -1c
+.RI "virtual bool \fBbranch_update\fP ()=0"
+.br
+.ti -1c
+.RI "virtual bool \fBhierarchy_update\fP ()=0"
+.br
+.in -1c
+.in -1c
+.PP
+.RI "\fBNext Element Functions\fP"
+.br
+
+.in +1c
+.in +1c
+.ti -1c
+.RI "virtual \fBstorage_section\fP * \fBlast\fP () const =0"
+.br
+.ti -1c
+.RI "virtual \fBstorage_section\fP * \fBnext\fP () const =0"
+.br
+.ti -1c
+.RI "virtual \fBsection_releaser\fP \fBadd_next\fP (\fBsection_releaser\fP)=0"
+.br
+.ti -1c
+.RI "virtual \fBsection_releaser\fP \fBinsert_next\fP (\fBsection_releaser\fP)=0"
+.br
+.ti -1c
+.RI "virtual \fBsection_releaser\fP \fBset_next\fP (\fBsection_releaser\fP)=0"
+.br
+.in -1c
+.in -1c
+.PP
+.RI "\fBIn-place Functions\fP"
+.br
+
+.in +1c
+.in +1c
+.ti -1c
+.RI "virtual \fBsection_releaser\fP \fBsplice_here\fP (\fBsection_releaser\fP)=0"
+.br
+.ti -1c
+.RI "virtual \fBsection_releaser\fP \fBremove_self\fP ()=0"
+.br
+.ti -1c
+.RI "virtual \fBsection_releaser\fP \fBreplace_self\fP (\fBsection_releaser\fP)=0"
+.br
+.ti -1c
+.RI "virtual \fBsection_releaser\fP \fBinsert_here\fP (\fBsection_releaser\fP)=0"
+.br
+.ti -1c
+.RI "virtual \fBsection_releaser\fP \fBpromote_children\fP ()=0"
+.br
+.ti -1c
+.RI "virtual \fBsection_releaser\fP \fBdemote_self\fP (\fBsection_releaser\fP)=0"
+.br
+.in -1c
+.in -1c
+.PP
+.RI "\fBSub-element Functions\fP"
+.br
+
+.in +1c
+.in +1c
+.ti -1c
+.RI "virtual \fBstorage_section\fP * \fBchild\fP () const =0"
+.br
+.ti -1c
+.RI "virtual \fBsection_releaser\fP \fBadd_child\fP (\fBsection_releaser\fP)=0"
+.br
+.ti -1c
+.RI "virtual \fBsection_releaser\fP \fBinsert_child\fP (\fBsection_releaser\fP)=0"
+.br
+.in -1c
+.in -1c
+.PP
+.RI "\fBCounting Functions\fP"
+.br
+
+.in +1c
+.in +1c
+.ti -1c
+.RI "virtual element_count \fBcount_previous\fP () const "
+.br
+.ti -1c
+.RI "virtual element_count \fBcount_next\fP () const "
+.br
+.ti -1c
+.RI "virtual element_count \fBcount_children\fP () const "
+.br
+.ti -1c
+.RI "virtual element_count \fBcount_depth\fP () const "
+.br
+.in -1c
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "virtual \fBparent_storage\fP * \fBset_parent\fP (\fBparent_storage\fP *)=0"
+.br
+.in -1c
+.SS "Previous Element Functions"
+
+.in +1c
+.ti -1c
+.RI "virtual \fBstorage_section\fP * \fBprevious\fP () const =0"
+.br
+.ti -1c
+.RI "virtual \fBstorage_section\fP * \fBfirst\fP () const =0"
+.br
+.ti -1c
+.RI "virtual \fBstorage_section\fP * \fBset_previous\fP (\fBstorage_section\fP *)=0"
+.br
+.ti -1c
+.RI "static \fBstorage_section\fP * \fBset_previous\fP (\fBstorage_section\fP *, \fBstorage_section\fP *)"
+.br
+.in -1c
+.SS "Duplication Functions"
+
+.in +1c
+.ti -1c
+.RI "virtual \fBsection_releaser\fP \fBcopy\fP () const =0"
+.br
+.ti -1c
+.RI "virtual \fBsection_releaser\fP \fBcopy_all\fP () const =0"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+.SH "Detailed Description"
+.PP 
+
+.PP
+\fBAttention:\fP
+.RS 4
+The function notes here define assumed behavior of further-derived classes\&. Do not override these functions in ways contrary to these notes!
+.PP
+Never create objects derived from this class using other than singular 'new'\&. This library expects to be able to delete any pointer to an object of this type\&. 
+.RE
+.PP
+
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "virtual storage_section::~storage_section ()\fC [inline]\fP, \fC [virtual]\fP"
+The derived destructor should trigger all sub-elements' deletion under all circumstances\&. If this element has no owner it should also trigger the deletion of the following element\&. This functionality should be implemented in the next-derived class, so if you don't derive directly from this class you don't need to worry about this\&. 
+.SH "Member Function Documentation"
+.PP 
+.SS "virtual bool storage_section::branch_update ()\fC [pure virtual]\fP"
+Update this element and all sub-elements\&. 
+.PP
+Implemented in \fBlinked_section\fP\&.
+.SS "virtual bool storage_section::hierarchy_update ()\fC [pure virtual]\fP"
+Start at the base of the tree and update the entire tree\&. 
+.PP
+Implemented in \fBlinked_section\fP\&.
+.SS "virtual \fBstorage_section\fP* storage_section::last () const\fC [pure virtual]\fP"
+Obtain the last peer element\&. 
+.SS "virtual \fBstorage_section\fP* storage_section::next () const\fC [pure virtual]\fP"
+Obtain the next peer element\&. 
+.PP
+Implemented in \fBlinked_section\fP\&.
+.SS "virtual \fBsection_releaser\fP storage_section::add_next (\fBsection_releaser\fP)\fC [pure virtual]\fP"
+Add a peer element at the end\&. The added element is returned\&. 
+.PP
+Implemented in \fBlinked_section\fP\&.
+.SS "virtual \fBsection_releaser\fP storage_section::insert_next (\fBsection_releaser\fP)\fC [pure virtual]\fP"
+Add a peer element directly after this element\&. The added element is returned\&. 
+.PP
+Implemented in \fBlinked_section\fP\&.
+.SS "virtual \fBsection_releaser\fP storage_section::set_next (\fBsection_releaser\fP)\fC [pure virtual]\fP"
+Replace the next element with that provided\&. The next element stays connected to all elements past it, breaking the row of peer elements in two, replacing the second part with a new part\&. If successful the part which was broken off is returned\&. If unsuccessful the argument is returned\&. 
+.PP
+\fBAttention:\fP
+.RS 4
+The broken-off return will have no owner if the operation is successful\&. 
+.RE
+.PP
+
+.PP
+Implemented in \fBlinked_section\fP\&.
+.SS "virtual \fBsection_releaser\fP storage_section::splice_here (\fBsection_releaser\fP)\fC [pure virtual]\fP"
+Replace this element with that provided\&. This element stays connected to all elements past it, breaking the row of peer elements in two, replacing the second part with a new part\&. If successful the part which was broken off is returned\&. If unsuccessful the argument is returned\&. 
+.PP
+\fBAttention:\fP
+.RS 4
+The broken-off return will have no owner if the operation is successful\&. 
+.RE
+.PP
+
+.PP
+Implemented in \fBlinked_section\fP\&.
+.SS "virtual \fBsection_releaser\fP storage_section::remove_self ()\fC [pure virtual]\fP"
+Remove this element\&. If successful the gap is closed between peer elements and this element is returned\&. If unsuccessful NULL is returned\&. 
+.PP
+\fBAttention:\fP
+.RS 4
+The broken-off return will have no owner if the operation is successful\&. 
+.RE
+.PP
+
+.PP
+Implemented in \fBlinked_section\fP\&.
+.SS "virtual \fBsection_releaser\fP storage_section::replace_self (\fBsection_releaser\fP)\fC [pure virtual]\fP"
+Replace this element with that provided\&. This element does not stay connected to the elements past it\&. If successful this element is returned with no peers\&. If unsuccessful the argument is returned\&. 
+.PP
+\fBAttention:\fP
+.RS 4
+The broken-off return will have no owner if the operation is successful\&. 
+.RE
+.PP
+
+.PP
+Implemented in \fBlinked_section\fP\&.
+.SS "virtual \fBsection_releaser\fP storage_section::insert_here (\fBsection_releaser\fP)\fC [pure virtual]\fP"
+Add a peer element directly before this element\&. The added element is returned\&. 
+.PP
+Implemented in \fBlinked_section\fP\&.
+.SS "virtual \fBsection_releaser\fP storage_section::promote_children ()\fC [pure virtual]\fP"
+Remove this element\&. If successful the sub-elements are promoted to fill the gap where this element used to be and this element is returned with no peers or sub-elements\&. If unsuccessful NULL is returned\&. 
+.PP
+\fBAttention:\fP
+.RS 4
+The broken-off return will have no owner if the operation is successful\&. 
+.RE
+.PP
+
+.PP
+Implemented in \fBlinked_section\fP\&.
+.SS "virtual \fBsection_releaser\fP storage_section::demote_self (\fBsection_releaser\fP)\fC [pure virtual]\fP"
+Add a peer element where this element is and demote this element as the last sub-element to that which is inserted\&. The added element is returned\&. 
+.PP
+Implemented in \fBlinked_section\fP\&.
+.SS "virtual \fBstorage_section\fP* storage_section::previous () const\fC [pure virtual]\fP"
+Obtain the previous peer element\&. 
+.PP
+Implemented in \fBlinked_section\fP\&.
+.SS "virtual \fBstorage_section\fP* storage_section::set_previous (\fBstorage_section\fP *)\fC [protected]\fP, \fC [pure virtual]\fP"
+Set the previous element\&. This should always return this element\&. 
+.PP
+Implemented in \fBlinked_section\fP\&.
+.SS "virtual \fBstorage_section\fP* storage_section::first () const\fC [pure virtual]\fP"
+Obtain the first peer element\&. 
+.PP
+Implemented in \fBlinked_section\fP\&.
+.SS "virtual \fBstorage_section\fP* storage_section::child () const\fC [pure virtual]\fP"
+Obtain the first sub-element\&. 
+.PP
+Implemented in \fBlinked_section\fP\&.
+.SS "virtual \fBsection_releaser\fP storage_section::add_child (\fBsection_releaser\fP)\fC [pure virtual]\fP"
+Add a sub-element to the end\&. The added element is returned\&. 
+.PP
+Implemented in \fBlinked_section\fP\&.
+.SS "virtual \fBsection_releaser\fP storage_section::insert_child (\fBsection_releaser\fP)\fC [pure virtual]\fP"
+Add a sub-element at the beginning\&. The added element is returned\&. 
+.PP
+Implemented in \fBlinked_section\fP\&.
+.SS "virtual \fBparent_storage\fP* storage_section::set_parent (\fBparent_storage\fP *)\fC [protected]\fP, \fC [pure virtual]\fP"
+Set the parent element\&. This should always return this element\&. 
+.PP
+Implemented in \fBlinked_section\fP\&.
+.SS "virtual \fBparent_storage\fP* storage_section::owner () const\fC [pure virtual]\fP"
+Obtain the object responsible for deleting this element\&. 
+.PP
+Implemented in \fBlinked_section\fP\&.
+.SS "virtual location_count storage_section::self_location () const\fC [pure virtual]\fP"
+Obtain the location of this element relative to the start of the first peer\&. 
+.PP
+Implemented in \fBlinked_section\fP\&.
+.SS "virtual \fBsection_releaser\fP storage_section::copy () const\fC [pure virtual]\fP"
+Create a copy of this element\&. This should be implemented in the most-derived class, and should return a \fBsection_releaser\fP constructed with a dynamically-allocated copy of that object\&. 
+.PP
+\fBAttention:\fP
+.RS 4
+The return will have no owner if the operation is successful\&. 
+.RE
+.PP
+
+.PP
+Implemented in \fBlinked_section\fP\&.
+.SS "virtual \fBsection_releaser\fP storage_section::copy_all () const\fC [protected]\fP, \fC [pure virtual]\fP"
+Create a copy of this element and every element following it\&. This is used internally to copy all sub-elements of an element\&. 
+.PP
+\fBAttention:\fP
+.RS 4
+The return will have no owner if the operation is successful\&. 
+.RE
+.PP
+
+.PP
+Implemented in \fBlinked_section\fP\&.
+.SS "virtual element_count storage_section::count_previous () const\fC [virtual]\fP"
+Count the number of peers previous to this element\&. 
+.SS "virtual element_count storage_section::count_next () const\fC [virtual]\fP"
+Count the number of peers after to this element\&. 
+.SS "virtual element_count storage_section::count_children () const\fC [virtual]\fP"
+Count the sub-elements\&. 
+.SS "virtual element_count storage_section::count_depth () const\fC [virtual]\fP"
+Count the number of containing objects\&. 
+.PP
+Reimplemented from \fBparent_storage\fP\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for hparser from the source code\&.

@@ -1,0 +1,40 @@
+.TH "scope_locator" 3 "Fri Dec 5 2014" "Version hparser-1.0.0" "hparser" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+scope_locator \- 
+.PP
+Scope-controllable object\&.
+.PP
+This class provides basic functionality to manage parsing scopes for a hierarchy\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <hparser/scope-locator\&.hpp>\fP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "virtual \fBscope_locator\fP * \fBlocate_scope\fP (const \fBscope_identifier\fP &)=0"
+.br
+.ti -1c
+.RI "virtual bool \fBcurrent_scope\fP (\fBscope_identifier\fP &, const \fBscope_locator\fP *) const =0"
+.br
+.ti -1c
+.RI "virtual bool \fBbase_current_scope\fP (const \fBscope_locator\fP *) const =0"
+.br
+.in -1c
+.SH "Member Function Documentation"
+.PP 
+.SS "virtual \fBscope_locator\fP* scope_locator::locate_scope (const \fBscope_identifier\fP &)\fC [pure virtual]\fP"
+Finds a matching element for the provided scope and returns it\&. This recursively searches the hierarchy based on the given stack of scope identifiers and returns the first element matching that specific scope\&. This is used to reset a parsing or exporting position after an error\&. The scope normally will come from the current_scope function\&. 
+.SS "virtual bool scope_locator::current_scope (\fBscope_identifier\fP &, const \fBscope_locator\fP *) const\fC [pure virtual]\fP"
+Compiles a stack of scope identifiers, upward until the element provided as the second element is reached, to indicate this element's location in the hierarchy\&. This is used to return to this element when a parsing or exportation error occurs using the locate_scope function\&. 
+.SS "virtual bool scope_locator::base_current_scope (const \fBscope_locator\fP *) const\fC [pure virtual]\fP"
+Sends message to the hierarchy base to extract scope\&. Intended to find the base and the base is intended to call the current_scope function with a \fBscope_identifier\fP it retains\&. 
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for hparser from the source code\&.

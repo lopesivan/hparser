@@ -1,0 +1,43 @@
+.TH "tagged_input" 3 "Fri Dec 5 2014" "Version hparser-1.0.0" "hparser" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+tagged_input \- 
+.PP
+Input interface for tag-formated sections\&.
+.PP
+This class provides a simple interface for parsing data that uses a tagged (e\&.g\&. XML) format\&. This interface must be combined virtually with an element class in order to be useful\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <hparser/formats/tagged-input\&.hpp>\fP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "virtual \fBinput_receiver\fP * \fBreceive_data\fP (\fBdata_input\fP *)"
+.br
+.RI "\fISequential input request\&. \fP"
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "virtual bool \fBis_close_tag\fP (\fBdata_input\fP *) const =0"
+.br
+.RI "\fISection end determination\&. \fP"
+.in -1c
+.SH "Member Function Documentation"
+.PP 
+.SS "virtual \fBinput_receiver\fP* tagged_input::receive_data (\fBdata_input\fP *)\fC [virtual]\fP"
+This function is implemented to parse a section of data\&. It calls the functions of \fBmanaged_input\fP to determine whether or not a portion of data contains a sub-section and creates a new one if necessary\&. This process is repeated until the section is completely filled as indicated by section_complete\&. 
+.PP
+Reimplemented from \fBinput_receiver\fP\&.
+.SS "virtual bool tagged_input::is_close_tag (\fBdata_input\fP *) const\fC [protected]\fP, \fC [pure virtual]\fP"
+This function is called internally to check to see if all data has been parsed for this section\&. The determination should be based on if the data provided is a 'close' tag corresponding to the type of section the current element is\&. 
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for hparser from the source code\&.

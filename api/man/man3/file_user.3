@@ -1,0 +1,49 @@
+.TH "file_user" 3 "Fri Dec 5 2014" "Version hparser-1.0.0" "hparser" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+file_user \- 
+.PP
+General file functions\&.
+.PP
+This class provides the minimal functionality of a file interface required internally by the library\&. These functions are common to both input and output file interfaces\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <hparser/file-user\&.hpp>\fP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "virtual bool \fBis_open\fP ()=0"
+.br
+.RI "\fIDetermine if the file is open\&. \fP"
+.ti -1c
+.RI "virtual bool \fBopen_file\fP (bool, bool)=0"
+.br
+.RI "\fIOpen the file\&. \fP"
+.ti -1c
+.RI "virtual bool \fBclose_file\fP ()=0"
+.br
+.RI "\fIClose the file\&. \fP"
+.in -1c
+.SH "Member Function Documentation"
+.PP 
+.SS "virtual bool file_user::is_open ()\fC [pure virtual]\fP"
+This function indicates whether or not the file is already open\&. 
+.PP
+Implemented in \fBgeneric_file\fP\&.
+.SS "virtual bool file_user::open_file (bool, bool)\fC [pure virtual]\fP"
+This function opens the file in the mode specified\&. The first argument denotes if the file is to be read and the second if it is to be written to\&. 
+.PP
+Implemented in \fBbin_file\fP, and \fBtext_file\fP\&.
+.SS "virtual bool file_user::close_file ()\fC [pure virtual]\fP"
+This function closes the file if it is open\&. 
+.PP
+Implemented in \fBgeneric_file\fP\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for hparser from the source code\&.

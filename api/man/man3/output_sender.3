@@ -1,0 +1,69 @@
+.TH "output_sender" 3 "Fri Dec 5 2014" "Version hparser-1.0.0" "hparser" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+output_sender \- 
+.PP
+Data output interface\&.
+.PP
+This class serves as the output interface of tree elements\&. This interface is used to export the data contained in the tree in a linear (storable in a file or printable in a console) format\&. Output objects are implementation defined\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <hparser/data-output\&.hpp>\fP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "virtual const \fBoutput_sender\fP * \fBsend_data\fP (\fBdata_output\fP *) const "
+.br
+.RI "\fISequential output request\&. \fP"
+.ti -1c
+.RI "virtual bool \fBcollect_data\fP (\fBcomposite_data\fP &) const "
+.br
+.RI "\fIRecursive output request\&. \fP"
+.ti -1c
+.RI "virtual bool \fBoutput_filter\fP (\fBoutput_section\fP &) const "
+.br
+.RI "\fIOutput filtering\&. \fP"
+.in -1c
+.SH "Detailed Description"
+.PP 
+
+.PP
+\fBSee also:\fP
+.RS 4
+\fBstring-output\&.hpp\fP is provided to mirror a std::string\&. 
+.PP
+\fBstring-composite\&.hpp\fP is provided to mirror a std::string\&.
+.PP
+\fBinput_receiver\fP provides complimentary output functionality\&. 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "virtual const \fBoutput_sender\fP* output_sender::send_data (\fBdata_output\fP *) const\fC [virtual]\fP"
+This function takes a \fBdata_output\fP object so that the \fBoutput_sender\fP can export its data\&. The element should base the output format on the output mode\&. For example, if the output is to go to a file which will be used by a program later, the element should export parsable data\&. If the output is to be displayed, the element should format it for display\&.
+.PP
+The return value is the next \fBoutput_sender\fP to take control of the \fBdata_output\fP\&. This function should output all of its own data and pass control of \fBdata_output\fP to its subelements in the order the data will be used in the future\&. For example, with a tagged format the element will output the open tag, its data, pass control to its first child, and send a close tag after its children have sent their data (this can be managed by \fBtagged_output\fP\&.)
+.PP
+If an element has one following it, it should pass control to that element by returning it after the element is done exporting itself and its children\&. If an element doesn't have anything following it, it should return its parent element\&. 
+.PP
+Reimplemented in \fBdescriptor_output\fP, and \fBtagged_output\fP\&.
+.SS "virtual bool output_sender::collect_data (\fBcomposite_data\fP &) const\fC [virtual]\fP"
+This function collects data from all of its children and combines it with its own data and inserts it into a \fBcomposite_data\fP object\&. This function can pass a unique \fBcomposite_data\fP object to its children for them to fill with their data, or it can provide the original \fBcomposite_data\fP to them with an offset\&. This entirely depends on the implementation of \fBcomposite_data\fP by the using program\&.
+.PP
+This function is intended for formats which contain all section boundary information at the beginning of the section\&. For example, number of children, number of bytes, etc\&. This function allows elements with those formats to determine how much space it will require before sending its header/descriptor element\&.
+.PP
+The return value should indicate success of the output operation\&. If this element has sub-elements, this function should contain a loop which checks their returns and aborts if one fails to output its data\&. 
+.SS "virtual bool output_sender::output_filter (\fBoutput_section\fP &) const\fC [virtual]\fP"
+This function is provided as an arbitrary filtering interface\&. This allows a child element to obtain output formatting for its data\&. 
+.PP
+Reimplemented in \fBlinked_section\fP\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for hparser from the source code\&.

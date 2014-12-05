@@ -1,0 +1,39 @@
+.TH "triggered_update" 3 "Fri Dec 5 2014" "Version hparser-1.0.0" "hparser" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+triggered_update \- 
+.PP
+Hierarchy updating interface\&.
+.PP
+This class provides a standard interface to update both hierarchy elements, branches, and the entire hierarchy itself\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <hparser/triggered-update\&.hpp>\fP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "virtual bool \fBglobal_update\fP ()"
+.br
+.RI "\fIUpdate multiple hierarchy elements\&. \fP"
+.ti -1c
+.RI "virtual bool \fBlocal_update\fP ()"
+.br
+.RI "\fIUpdate the current hierarchy element\&. \fP"
+.in -1c
+.SH "Member Function Documentation"
+.PP 
+.SS "virtual bool triggered_update::global_update ()\fC [virtual]\fP"
+This function should update the current element with local_update and also update any branches that originate from the current element\&. 
+.PP
+Reimplemented in \fBlinked_section\fP\&.
+.SS "virtual bool triggered_update::local_update ()\fC [virtual]\fP"
+This function should update the current element only\&. 
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for hparser from the source code\&.

@@ -1,0 +1,35 @@
+.TH "output_control" 3 "Fri Dec 5 2014" "Version hparser-1.0.0" "hparser" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+output_control \- 
+.PP
+Data output recursion control\&.
+.PP
+This class provides recursion control to output interface classes\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <hparser/output-control\&.hpp>\fP
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "virtual bool \fBsending_subs\fP () const "
+.br
+.ti -1c
+.RI "virtual bool \fBset_sending_subs\fP (bool) const "
+.br
+.in -1c
+.SH "Member Function Documentation"
+.PP 
+.SS "virtual bool output_control::sending_subs () const\fC [protected]\fP, \fC [virtual]\fP"
+Determine if the element is currently sending its data\&. 
+.SS "virtual bool output_control::set_sending_subs (bool) const\fC [protected]\fP, \fC [virtual]\fP"
+Change the sending status of the element\&. 
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for hparser from the source code\&.

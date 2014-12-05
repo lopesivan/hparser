@@ -1,0 +1,57 @@
+.TH "Interfaces for External Systems" 3 "Fri Dec 5 2014" "Version hparser-1.0.0" "hparser" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Interfaces for External Systems \- 
+.SS "Classes"
+
+.in +1c
+.ti -1c
+.RI "class \fBstandard_error\fP"
+.br
+.RI "\fIStandard error interface\&.
+.PP
+This class is not yet written! \fP"
+.ti -1c
+.RI "class \fBstandard_input\fP"
+.br
+.RI "\fIStandard input interface\&.
+.PP
+This class is not yet written! \fP"
+.ti -1c
+.RI "class \fBstandard_output\fP"
+.br
+.RI "\fIStandard output interface\&.
+.PP
+This class is not yet written! \fP"
+.ti -1c
+.RI "class \fBdata_input\fP"
+.br
+.RI "\fIData input source\&.
+.PP
+This class serves as a generic input interface for data being parsed\&. It provides minimal functionality which can be used in various combinations to handle nearly all imaginable formats of information\&. \fP"
+.ti -1c
+.RI "class \fBdata_output\fP"
+.br
+.RI "\fIData output destination\&.
+.PP
+This class serves as a generic output interface for data being exported from the tree\&. This interface receives the output data from various components of the tree\&. \fP"
+.ti -1c
+.RI "class \fBmulti_destination\fP"
+.br
+.RI "\fIMultiple-destination data output\&.
+.PP
+This class serves as an output source selector\&. The deriving class will generally have more than one \fBdata_output\fP built in and will select one of the destinations for a particular input operation based on that class' own criteria\&. \fP"
+.ti -1c
+.RI "class \fBmulti_source\fP"
+.br
+.RI "\fIMultiple-source data input\&.
+.PP
+This class serves as an input source selector\&. The deriving class will generally have more than one \fBdata_input\fP built in and will select one of the sources for a particular input operation based on that class' own criteria\&. \fP"
+.in -1c
+.SH "Detailed Description"
+.PP 
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for hparser from the source code\&.

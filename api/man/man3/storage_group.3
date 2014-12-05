@@ -1,0 +1,45 @@
+.TH "Storage Components" 3 "Fri Dec 5 2014" "Version hparser-1.0.0" "hparser" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Storage Components \- 
+.SS "Classes"
+
+.in +1c
+.ti -1c
+.RI "class \fBlinked_section\fP"
+.br
+.RI "\fIPartially-abstract tree element class\&.
+.PP
+This class provides linking functionality for \fBstorage_section\fP\&. This class owns the element following it and its first child element\&. This means that upon its own deletion it deletes its child elements and the following element if this element has no owner itself\&. Some functions are overridden or implemented with specific functionality unique to a linked element\&. \fP"
+.ti -1c
+.RI "class \fBsection_releaser\fP"
+.br
+.RI "\fIConsumable memory management wrapper\&.
+.PP
+This class is a wrapper for dynamic pointer returns from \fBstorage_section\fP functions\&. This is the primary memory management class for elements not currently owned by another element\&. \fP"
+.ti -1c
+.RI "class \fBparent_storage\fP"
+.br
+.RI "\fIContainer class for hierarchy elements\&.
+.PP
+This class is the basic container class for the hierarchy\&. It's the base class for all hierarchy elements and hierarchy bases\&. It provides the necessary interfaces for the hierarchy to function\&. \fP"
+.ti -1c
+.RI "class \fBstorage_section\fP"
+.br
+.RI "\fIAbstract tree element class\&.
+.PP
+This is the basic structural element of the tree\&. It connects to sub-elements and elements following it\&. This class provides the complete interface required for all operations on the tree elements\&. This class relies on several implementation-defined classes to extend the tree's interface to interfaces external-to and unknown-to this library\&. \fP"
+.ti -1c
+.RI "class \fBstructure_base\fP"
+.br
+.RI "\fIHierarchy base container\&.
+.PP
+This class serves as a simple base object for a hierarchy\&. It is the parent of the base element of the tree, and is therefore the base of the tree\&. \fP"
+.in -1c
+.SH "Detailed Description"
+.PP 
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for hparser from the source code\&.

@@ -1,0 +1,87 @@
+.TH "parent_storage" 3 "Fri Dec 5 2014" "Version hparser-1.0.0" "hparser" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+parent_storage \- 
+.PP
+Container class for hierarchy elements\&.
+.PP
+This class is the basic container class for the hierarchy\&. It's the base class for all hierarchy elements and hierarchy bases\&. It provides the necessary interfaces for the hierarchy to function\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <hparser/parent-storage\&.hpp>\fP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "virtual \fBsection_releaser\fP \fBset_child\fP (\fBsection_releaser\fP)=0"
+.br
+.ti -1c
+.RI "virtual \fBparent_storage\fP * \fBparent\fP () const "
+.br
+.ti -1c
+.RI "virtual element_count \fBcount_depth\fP () const "
+.br
+.ti -1c
+.RI "virtual location_count \fBnext_location\fP () const "
+.br
+.ti -1c
+.RI "virtual location_count \fBchild_location\fP () const "
+.br
+.ti -1c
+.RI "virtual location_count \fBstorage_size\fP () const "
+.br
+.in -1c
+.SS "Static Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static \fBparent_storage\fP * \fBset_parent\fP (\fBstorage_section\fP *, \fBparent_storage\fP *)"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+.SH "Member Function Documentation"
+.PP 
+.SS "virtual \fBsection_releaser\fP parent_storage::set_child (\fBsection_releaser\fP)\fC [pure virtual]\fP"
+Remove all sub-elements and replace them with the argument provided\&. 
+.PP
+Implemented in \fBlinked_section\fP\&.
+.SS "virtual \fBparent_storage\fP* parent_storage::parent () const\fC [virtual]\fP"
+Return the parent object in the hierarchy\&. Returns NULL by default\&. 
+.PP
+Reimplemented in \fBlinked_section\fP\&.
+.SS "virtual element_count parent_storage::count_depth () const\fC [virtual]\fP"
+Count the number of objects directly superior to this object\&. 
+.PP
+Reimplemented in \fBstorage_section\fP\&.
+.SS "virtual location_count parent_storage::next_location () const\fC [virtual]\fP"
+Determine the storage location of the next element\&. This is used when exporting to a centralized data location where each part of the hierarchy must know where to place its data\&. If necessary, override this function to denote the position following the last unit of data from this object and it's sub-objects\&. This should take into account the size of the data from this object plus the size of all child elements\&. Recommended return is the return of the next_location function called on the last sub-object\&. 
+.SS "virtual location_count parent_storage::child_location () const\fC [virtual]\fP"
+Determine the storage location of the first sub-object\&. Recommended return value is the location of this object's data + the size of this object's data\&.
+.PP
+\fBSee also:\fP
+.RS 4
+\fBnext_location\fP provides further guidance\&. 
+.RE
+.PP
+
+.SS "virtual location_count parent_storage::storage_size () const\fC [virtual]\fP"
+Determine the storage size of this object's data\&.
+.PP
+\fBSee also:\fP
+.RS 4
+\fBnext_location\fP provides further guidance\&. 
+.RE
+.PP
+
+.PP
+Reimplemented in \fBlinked_section\fP\&.
+.SS "static \fBparent_storage\fP* parent_storage::set_parent (\fBstorage_section\fP *, \fBparent_storage\fP *)\fC [static]\fP, \fC [protected]\fP"
+Sets this element's reference to the element above it in the hierarchy\&. This is protected since it effects memory management\&. Do not use this function unless you are deriving a new element class which will provide memory management! 
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for hparser from the source code\&.

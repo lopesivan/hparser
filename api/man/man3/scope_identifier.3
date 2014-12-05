@@ -1,0 +1,113 @@
+.TH "scope_identifier" 3 "Fri Dec 5 2014" "Version hparser-1.0.0" "hparser" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+scope_identifier \- 
+.PP
+FILO implementation of scope identifers\&.
+.PP
+This is an optional class definition for \fBscope_identifier\fP\&. This class may be defined by the user instead of using this definition\&. Make sure to include the same class definition in all communicating units of your program! This definition treats the identifier as a stack of scopes\&. Layers are added and removed from the bottom and comparison to a reference layer is done with the bottom layer\&. This class is derived from std::deque\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <hparser/classes/filo-scope\&.hpp>\fP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBscope_identifier\fP & \fBclear_scope\fP ()"
+.br
+.ti -1c
+.RI "scope_layer \fBcomposite_scope\fP (const char *=':') const "
+.br
+.ti -1c
+.RI "bool \fBoperator==\fP (const scope_layer &) const "
+.br
+.ti -1c
+.RI "bool \fBoperator!=\fP (const scope_layer &) const "
+.br
+.in -1c
+.PP
+.RI "\fBInner Scope Functions\fP"
+.br
+Functions to manipulate the lowest-level scope 
+.PP
+.in +1c
+.in +1c
+.ti -1c
+.RI "\fBscope_identifier\fP & \fBenter_scope\fP (const scope_layer &)"
+.br
+.ti -1c
+.RI "\fBscope_identifier\fP & \fBoperator>>\fP (const scope_layer &)"
+.br
+.ti -1c
+.RI "\fBscope_identifier\fP & \fBleave_scope\fP (unsigned int=1)"
+.br
+.ti -1c
+.RI "\fBscope_identifier\fP & \fBoperator<<\fP (unsigned int)"
+.br
+.in -1c
+.in -1c
+.PP
+.RI "\fBOuter Scope Functions\fP"
+.br
+Functions to manipulate the highest-level scope 
+.PP
+.in +1c
+.in +1c
+.ti -1c
+.RI "\fBscope_identifier\fP & \fBglobalize_scope\fP (const scope_layer &)"
+.br
+.ti -1c
+.RI "\fBscope_identifier\fP & \fBoperator<<\fP (const scope_layer &)"
+.br
+.ti -1c
+.RI "\fBscope_identifier\fP & \fBlocalize_scope\fP (unsigned int=1)"
+.br
+.ti -1c
+.RI "\fBscope_identifier\fP & \fBoperator>>\fP (unsigned int)"
+.br
+.in -1c
+.in -1c
+.SH "Detailed Description"
+.PP 
+
+.PP
+\fBSee also:\fP
+.RS 4
+\fBimpl-defined\&.hpp\fP shows all implementation-defined classes\&. 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "\fBscope_identifier\fP& scope_identifier::enter_scope (const scope_layer &)"
+Enter the scope of a sub-section\&. 
+.SS "\fBscope_identifier\fP& scope_identifier::operator>> (const scope_layer &)"
+Enter the scope of a sub-section\&. 
+.SS "\fBscope_identifier\fP& scope_identifier::leave_scope (unsignedint = \fC1\fP)"
+Leave the scope of a sub-section or sub-sections\&. 
+.SS "\fBscope_identifier\fP& scope_identifier::operator<< (unsignedint)"
+Leave the scope of a sub-section or sub-sections\&. 
+.SS "\fBscope_identifier\fP& scope_identifier::globalize_scope (const scope_layer &)"
+Specify an additional outer scope\&. 
+.SS "\fBscope_identifier\fP& scope_identifier::operator<< (const scope_layer &)"
+Specify an additional outer scope\&. 
+.SS "\fBscope_identifier\fP& scope_identifier::localize_scope (unsignedint = \fC1\fP)"
+Remove the outermost scope or scopes\&. 
+.SS "\fBscope_identifier\fP& scope_identifier::operator>> (unsignedint)"
+Remove the outermost scope or scopes\&. 
+.SS "\fBscope_identifier\fP& scope_identifier::clear_scope ()"
+Clear the entire scope\&. 
+.SS "scope_layer scope_identifier::composite_scope (const char * = \fC':'\fP) const"
+Return a composite of the current scope\&. 
+.SS "bool scope_identifier::operator== (const scope_layer &) const"
+Determine if the innermost scope matches that provided\&. 
+.SS "bool scope_identifier::operator!= (const scope_layer &) const"
+Determine if the innermost scope doesn't match that provided\&. 
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for hparser from the source code\&.

@@ -1,0 +1,35 @@
+.TH "output_resource" 3 "Fri Dec 5 2014" "Version hparser-1.0.0" "hparser" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+output_resource \- 
+.PP
+Random-access output resource\&.
+.PP
+This class provides a random-access output interface\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <hparser/output-resource\&.hpp>\fP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "virtual bool \fBset_output\fP (output_resource_count, const \fBoutput_section\fP &)=0"
+.br
+.ti -1c
+.RI "virtual bool \fBset_output_index\fP (output_resource_count=0)=0"
+.br
+.in -1c
+.SH "Member Function Documentation"
+.PP 
+.SS "virtual bool output_resource::set_output (output_resource_count, const \fBoutput_section\fP &)\fC [pure virtual]\fP"
+Send output using an index\&. 
+.SS "virtual bool output_resource::set_output_index (output_resource_count = \fC0\fP)\fC [pure virtual]\fP"
+Set the current output index offset\&. This will be added to all output indexes used in set_output\&. 
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for hparser from the source code\&.

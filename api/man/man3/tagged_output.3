@@ -1,0 +1,49 @@
+.TH "tagged_output" 3 "Fri Dec 5 2014" "Version hparser-1.0.0" "hparser" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+tagged_output \- 
+.PP
+Output interface for tag-formated sections\&.
+.PP
+This class provides a simple interface for exporting data that uses a tagged (e\&.g\&. XML) format\&. This interface must be combined virtually with an element class in order to be useful\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <hparser/formats/tagged-output\&.hpp>\fP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "virtual const \fBoutput_sender\fP * \fBsend_data\fP (\fBdata_output\fP *) const "
+.br
+.RI "\fISequential output request\&. \fP"
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "virtual bool \fBsend_open_tag\fP (\fBdata_output\fP *) const =0"
+.br
+.RI "\fISend section open tag\&. \fP"
+.ti -1c
+.RI "virtual bool \fBsend_close_tag\fP (\fBdata_output\fP *) const =0"
+.br
+.RI "\fISend section close tag\&. \fP"
+.in -1c
+.SH "Member Function Documentation"
+.PP 
+.SS "virtual const \fBoutput_sender\fP* tagged_output::send_data (\fBdata_output\fP *) const\fC [virtual]\fP"
+This function is implemented to send the section's open tag and its own data, then pass control to its first sub-section\&. After all sub-sections have passed their data it sends the close tag and control goes to the next section, and finally to its parent\&. 
+.PP
+Reimplemented from \fBoutput_sender\fP\&.
+.SS "virtual bool tagged_output::send_open_tag (\fBdata_output\fP *) const\fC [protected]\fP, \fC [pure virtual]\fP"
+This function should send the opening tag for the section, e\&.g\&. '<section>'\&. 
+.SS "virtual bool tagged_output::send_close_tag (\fBdata_output\fP *) const\fC [protected]\fP, \fC [pure virtual]\fP"
+This function should send the closing tag for the section, e\&.g\&. '</section>'\&. 
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for hparser from the source code\&.
