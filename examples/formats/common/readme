@@ -1,4 +1,0 @@
-This directory holds sources and headers used by more than one example.  These
-are generic classes which perform the generic functions of the examples.  See
-each individual example for specifics about the different types of files which
-can be parsed.

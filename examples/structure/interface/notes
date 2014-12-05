@@ -1,1 +1,0 @@
-demonstrate parallel object structures which allow editing, etc. outside of hparser scope.  should handle structure changes themselves; they make the StorageSection calls so that they can update internal data as appropriate. non-interactive.
